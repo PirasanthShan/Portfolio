@@ -1,17 +1,22 @@
 <!-- GITHUB -->
-git add .                           # Alle Dateien zur Stage hinzufügen
-git commit -m "Initial commit"      # Ersten Commit erstellen
-git push              # Hochladen auf GitHub
+git add .                           # Add all files to the staging area
+git commit -m "Initial commit"     # Create the first commit
+git push                           # Push changes to GitHub
+
 
 <!-- Angular Befehle -->
 
-ng new projektname             # Neues Angular-Projekt erstellen
-ng serve                       # Lokalen Dev-Server starten (http://localhost:4200)
-ng build                       # Produktionsbuild erstellen (Standard: ./dist/)
-ng build --watch               # Automatisch bei Dateiänderungen neu bauen
-ng generate component name     # Neue Komponente erstellen (Kurzform: ng g c name)
-ng generate module name        # Neues Modul
-ng generate service name       # Neuer Service
-ng generate directive name     # Neue Direktive
-ng generate pipe name          # Neue Pipe
+ng new project-name                # Create a new Angular project
+ng serve                           # Start the local development server (http://localhost:4200)
+ng build                           # Create a production build (default: ./dist/)
+ng build --watch                   # Rebuild automatically when files change
+ng generate component name         # Generate a new component (shortcut: ng g c name)
+ng generate module name            # Generate a new module
+ng generate service name           # Generate a new service
+ng generate directive name         # Generate a new directive
+ng generate pipe name              # Generate a new pipe
+
+
+
+
 
