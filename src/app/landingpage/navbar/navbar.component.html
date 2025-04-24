@@ -1,0 +1,54 @@
+<div class="navbar">
+
+  <div class="logoCtn">
+     <a href="">
+       <img src="./assets/img/LogoName.webp" alt="">
+     </a>
+  </div>
+
+  <div class="translateMenu">
+    <span 
+      [ngClass]="{
+        'black-border': selectedLang === 'DE' && borderState === 'black',
+        'green-border': selectedLang === 'DE' && borderState === 'green'
+      }"
+      (click)="setLang('DE')"
+    >DE</span>
+  
+    <span 
+      [ngClass]="{
+        'black-border': selectedLang === 'EN' && borderState === 'black',
+        'green-border': selectedLang === 'EN' && borderState === 'green'
+      }"
+      (click)="setLang('EN')"
+    >EN</span>
+  
+    <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
+  </div>
+
+</div>
+
+
+<div class="dropDownMenu" [class.open]="isOpen" >
+ 
+  <span class="aboutMe"><a href="">About me</a></span>
+  <span class="aboutMe"><a href="">My Skills</a></span>
+  <span class="aboutMe"><a href="">Portfolio</a></span>
+  
+  <div class="emailIconSection">
+   
+    <div class="emailCtn"> 
+      <span>Say Hi!</span>
+      <p class="email">pirasanth&#64;live.de</p>
+    </div>
+    
+    <div class="imgCtn">
+      <img class="imgGitHub" src="./assets/img/Github.webp" alt="">
+      <img class="imgEmail" src="./assets/img/Email.webp" alt="">
+      <img class="inImg" src="./assets/img/in.webp" alt="">
+    </div>
+  
+  </div>  
+
+
+</div>
