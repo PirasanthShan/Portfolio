@@ -1,0 +1,111 @@
+.aboutContainer{
+  position: absolute;
+  top: 927px;
+  width: 100%;
+  height: 681px;
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .mainContainer{
+  width: 1259px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-left: 100px;
+  margin-right: 100px;
+ }
+}
+
+
+
+h1{
+  font-family: Syne;
+  font-weight: 800;
+  font-size: 78px;
+  line-height: 100%;
+  letter-spacing: 1%; 
+  text-align: center;
+  color: #000000;
+  margin: 0px;
+}
+
+.textaboutme{
+  font-family: Overpass;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 120%;
+  margin-top: 30px;
+  
+}
+
+.aboutMeContainer{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 50%;
+  height: 426px;
+  position: absolute;
+  top: 150px;
+  left: 170px;
+}
+
+.locationCtn{
+  p{
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
+  }
+  div{
+  display: flex;
+  align-items: center;
+  gap: 20px
+  }
+  img{
+  width: 36.66666793823242px;
+  height: 28.33333396911621px;
+  }
+ } 
+
+.imgContainer{
+  position: absolute;
+  top: 150px;
+  right: 250px;
+  width: 375.8951110839844px;
+  height: 375.8951110839844px;
+ img{
+  width: 500px;
+  height: 500px;
+  
+  }
+  div{
+    width: 490.8951110839844px;
+    height: 490.8951110839844px;
+    border: 4px solid #000000;
+    position: absolute;
+    top: 20px;
+    right: -150px;
+  }
+}
+
+button{
+  width: 213px;
+  height: 68px;
+  padding: 20px 20px;
+  background-color:  #FFFCF3;
+  border: 4px solid #000000;
+  color: black;
+  font-family: Overpass;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 100%;
+  position: absolute;
+  top: 450px;
+  left: 303px;
+}
+
+ 
+
