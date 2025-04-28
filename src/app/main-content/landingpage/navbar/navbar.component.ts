@@ -11,13 +11,13 @@ import { Component } from '@angular/core';
 
 export class NavbarComponent {
   burgerFrames = [
-    'assets/img/BurgerMenu1.webp',
-    'assets/img/BurgerMenu2.webp',
-    'assets/img/BurgerMenu3.webp',
-    'assets/img/BurgerMenu4.webp',
+    './assets/img/BurgerMenu1.webp',
+    './assets/img/BurgerMenu2.webp',
+    './assets/img/BurgerMenu3.webp',
+    './assets/img/BurgerMenu4.webp',
     ];
 
-    startFrame = 'assets/img/BurgerMenu.webp';
+    startFrame = './assets/img/BurgerMenu.webp';
     currentFrame = this.startFrame;
     public intervalId: any;
     isOpen = false;

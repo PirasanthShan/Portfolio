@@ -1,0 +1,221 @@
+// navbar.component.scss
+
+// Mixins
+@mixin display($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin background($color) {
+  background: $color;
+}
+
+@mixin sizing($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin font($fontfamily, $fontweight, $fontsize){
+    font-family: $fontfamily;
+    font-weight: $fontweight;
+    font-size: $fontsize;
+}
+
+@mixin position(){
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+// Animations
+@keyframes bounceIn {
+  0% { transform: translateY(-100%); opacity: 0; }
+  60% { transform: translateY(30px); opacity: 1; }
+  80% { transform: translateY(-10px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+// Navbar Styles
+.navbar {
+  position: fixed;
+  top: 0;
+  @include background(#FFFCF3);
+  @include display(flex, space-between, center);
+  @include sizing(100%, 92px);
+}
+
+.logoCtn {
+  margin-left: 150px;
+  img {
+    @include sizing(80px, 66px);
+    cursor: pointer;
+  }
+}
+
+.translateMenu {
+  margin-right: 150px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  span {
+    @include font(Syne, 700, 25px);
+    line-height: 120%;
+    letter-spacing: 0;
+    color: black;
+  }
+  span:hover {
+    cursor: pointer;
+  }
+  span.black-border {
+    border: 3px solid black;
+    padding: 5px;
+  }
+  span.green-border {
+    border: 3px solid green;
+    padding: 5px;
+  }
+  span:not(.black-border):not(.green-border):hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  img {
+    margin-left: 40px;
+    @include sizing(50px, 40px);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Dropdown Menu Styles
+.dropDownMenu {
+  @include sizing(100%, 70%);
+  position: absolute;
+  top: 92px;
+  @include background(#FFFCF3);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 35px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  &::after {
+    content: "";
+    @include position();
+    @include sizing(100%, 0);
+    background-color: black;
+    z-index: 0;
+    clip-path: polygon(0px 0px, 100% 220px, 100% 320px, 0px 320px);
+    transition: height 0.4s ease;
+  }
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    animation: bounceIn 0.6s ease forwards;
+
+    &::after {
+      height: 320px;
+    }
+  }
+}
+
+// Other Sections
+.aboutMe {
+  position: relative;
+  @include sizing(580px, 167px);
+  @include display(flex, center, center);
+  @include font(Syne, 700, 96px);
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    @include position();
+    @include sizing(50px, 50px);
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  &::after {
+    content: "";
+    @include position();
+    @include sizing(0px, 4px);
+    background-color: black;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    opacity: 0;
+  }
+  &:hover::after {
+    animation: snakeRun 0.6s ease-in-out forwards;
+  }
+
+  @keyframes snakeRun {
+    0% { left: 0; width: 100px; }
+    100% { left: 360px; width: 250px; }
+  }
+}
+
+.emailIconSection {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.emailCtn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  right: 900px;
+  bottom: 20px;
+
+  span {
+    @include font(Syne, 800, 78px);
+    color: #FFFCF3;
+    text-align: center;
+    transition: color 0.2s ease;
+  }
+  span:hover {
+    color: #FF9900;
+    cursor: default;
+  }
+
+  p {
+    @include font(Overpass, 300, 23px);
+    color: #FFFCF3;
+    cursor: default;
+  }
+}
+
+.imgCtn {
+  display: flex;
+  position: relative;
+  left: 650px;
+  bottom: -70px;
+  gap: 42px;
+
+  .imgEmail,
+  .imgGitHub { @include sizing(40px, 40px); transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
+
+  .inImg { @include sizing(36px, 30px); margin-top: 11px; transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
+}
