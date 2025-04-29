@@ -5,6 +5,7 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
 import { MyskillsComponent } from './myskills/myskills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ReferencesComponent } from './references/references.component';
+import { ArrowRightComponent } from './arrow-right/arrow-right.component';
 
 @Component({
   selector: 'app-main-content',
@@ -12,9 +13,10 @@ import { ReferencesComponent } from './references/references.component';
   imports: [CommonModule,
             LandingpageComponent,
             AboutmeComponent,
+            ArrowRightComponent,
             MyskillsComponent,
             ProjectsComponent,
-            ReferencesComponent
+            ReferencesComponent,
   ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
