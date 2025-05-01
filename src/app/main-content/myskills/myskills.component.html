@@ -1,1 +1,30 @@
-<p>myskills works!</p>
+<div class="mySkillsContainer">
+  <div class="innerCtn">
+
+    <div class="skillsCtn">
+      <h1>My skills</h1>
+    </div>
+
+    <div class="grid">
+      <div class="item" *ngFor="let img of images">
+        <img [src]="img.src" [alt]="img.alt">
+        <p>{{ img.label }}</p>
+      </div>
+    </div>
+    
+    <div class="continued-learning">
+      <img
+        src="./assets/img/Property 1=Continued learning.webp"
+        alt="Always learning"
+      >
+      <p>
+        Don't see the skill you need?
+        <a href="mailto:your@email.com">
+          Contact me
+        </a>
+         — I'm always ready to learn!
+      </p>
+    </div>
+    
+  </div>
+</div>
