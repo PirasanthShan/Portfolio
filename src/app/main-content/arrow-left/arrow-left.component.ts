@@ -33,6 +33,6 @@ export class ArrowLeftComponent implements AfterViewInit {
     setTimeout(() => {
       this.renderer.removeClass(container, 'animating');
       this.renderer.addClass(container, 'finished');
-    }, 200);
+    }, 300);
   }
 }
