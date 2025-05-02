@@ -1,0 +1,52 @@
+.arrow-container {
+  position: absolute;
+  top: 2700px;
+  left: 500px;
+  width: 200px;
+  height: 300px;
+  cursor: pointer;
+
+  .arrow {
+    position: absolute;
+    width: 200px;
+    transition: opacity 0.1s ease;
+  }
+
+  .arrow-long {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .arrow-short {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  &.animating {
+    .arrow-long {
+      opacity: 1;
+      animation: flyArrow 0.5s ease-out forwards;
+      z-index: 2;
+    }
+
+    .arrow-short {
+      opacity: 0;
+    }
+  }
+
+  &.finished {
+    .arrow-long {
+      display: none;
+    }
+
+    .arrow-short {
+      opacity: 1;
+      transform: translate(100px, 100px); // Endposition des kleinen Pfeils
+    }
+  }
+}
+
+@keyframes flyArrow {
+  0%   { transform: translate(0, 0); opacity: 1; }
+  100% { transform: translate(60px, 60px); opacity: 1; }
+}

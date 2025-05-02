@@ -130,7 +130,7 @@ h1 {
 }
 
 a {
-  position: relative;            // needed for the ::after positioning
+  position: relative;           
   color: #FF9900;                
   text-decoration: none;
   font-weight: 800;
@@ -140,18 +140,18 @@ a {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0;                   // sits right under the text
+    bottom: 0;                  
     width: 0;
-    height: 2px;                 // thickness of the underline
-    background: currentColor;    // matches the link color
+    height: 2px;                
+    background: currentColor;   
     transition: width 0.3s ease;
   }
 
   &:hover {
-    color: darken(#FF9900, 10%); // SCSS function to darken on hover
+    color: darken(#FF9900, 10%); 
 
     &::after {
-      width: 100%;               // animate full width
+      width: 100%;               
     }
   }
 }

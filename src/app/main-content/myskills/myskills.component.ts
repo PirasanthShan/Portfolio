@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   templateUrl: './myskills.component.html',
   styleUrl: './myskills.component.scss'
 })
+
 export class MyskillsComponent {
   images = [
     { src: './assets/img/Property 1=Angular.webp',        alt: 'Angular',         label: 'Angular' },
