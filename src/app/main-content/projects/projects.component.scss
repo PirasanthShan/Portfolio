@@ -35,14 +35,14 @@
   }
 }
 
-.projectsCtn{
- 
+.projectsCtn {
   height: 460px;
   display: flex;
   justify-content: center;
   text-align: start;
   gap: 150px;
   margin-top: 100px;
+
   .imgWrapper {
     position: relative;
     width: 700px;
@@ -55,10 +55,6 @@
       filter: grayscale(100%);
       display: block;
       transition: filter 0.3s ease;
-    }
-
-    &:hover img {
-      filter: none;
     }
 
     .frame {
@@ -81,21 +77,30 @@
         width: 70px;
         height: 70px;
         pointer-events: none;
-        transform: rotate(180deg) scale(0.43); 
-        transform-origin: center center; 
-        transition: transform 0.3s ease;
+        transform: rotate(180deg) scale(0.43);
+        transform-origin: center center;
+        transition: transform 0.5s ease;
         opacity: 0;
         z-index: 4;
       }
-      
     }
+  }
 
-    &:hover .frame {
-      opacity: 1;
+  // Hover-Effekte auf den gesamten Container legen
+  &:hover {
+    .imgWrapper {
+      img {
+        filter: none;
+      }
 
-      .arrow-icon {
+      .frame {
         opacity: 1;
-        transform: rotate(10deg);
+
+        .arrow-icon {
+          opacity: 1;
+          transform: rotate(10deg);
+        }
+        
       }
     }
   }
@@ -103,7 +108,13 @@
 
 
 
+
 .textCtn{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-160px); // Startposition weiter links
+  transition: transform 0.5s ease;
+  pointer-events: none;
   width: 400px;
   height: 400px;
   display: flex;
@@ -142,6 +153,14 @@
     margin: 0px;
   }
  }
+
+ // Sichtbar machen beim Hover über projectsCtn
+.projectsCtn:hover .textCtn {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0); // Zielposition
+}
 
  span{
   font-family: Syne;
