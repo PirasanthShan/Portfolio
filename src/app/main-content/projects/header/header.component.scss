@@ -1,0 +1,29 @@
+
+.headerCtn{
+  h1{
+    width: 538px;
+    height: 78px;
+    font-family: Syne;
+    font-weight: 800;
+    font-size: 78px;
+    line-height: 100%;
+    letter-spacing: 1%;
+    text-align: center;
+    margin: 0px;
+    transition: 0.3s ease;
+  }h1:hover{
+    color: #FF9900;
+  }
+  p{
+    width: 525px;
+    height: 52px;
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-top: 42px;
+
+  }
+}

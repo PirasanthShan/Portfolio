@@ -1,0 +1,167 @@
+.projectsCtn {
+  height: 460px;
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  gap: 150px;
+  margin-top: 100px;
+
+  .imgWrapper {
+    position: relative;
+    width: 700px;
+    height: 400px;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      filter: grayscale(100%);
+      display: block;
+      transition: filter 0.3s ease;
+    }
+
+    .frame {
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      bottom: 10px;
+      left: 20px;
+      border: 4px solid #000000;
+      opacity: 0;
+      transition: 0.3s ease;
+      pointer-events: none;
+      box-sizing: border-box;
+      z-index: 2;
+
+      .arrow-icon {
+        position: absolute;
+        top: 120px;
+        right: -40px;
+        width: 70px;
+        height: 70px;
+        pointer-events: none;
+        transform: rotate(180deg) scale(0.43);
+        transform-origin: center center;
+        transition: transform 0.5s ease;
+        opacity: 0;
+        z-index: 4;
+      }
+    }
+  }
+
+  // Hover-Effekte auf den gesamten Container legen
+  &:hover {
+    .imgWrapper {
+      img {
+        filter: none;
+      }
+
+      .frame {
+        opacity: 1;
+
+        .arrow-icon {
+          opacity: 1;
+          transform: rotate(10deg);
+        }
+        
+      }
+    }
+  }
+}
+
+.textCtn{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-160px); // Startposition weiter links
+  transition: transform 0.5s ease;
+  pointer-events: none;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ h1{
+    width: 196;
+    height: 38;
+    font-family: Syne;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 120%;
+    margin: 0px;
+  }
+  h2{
+    width: 340;
+    height: 48;
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    vertical-align: middle;
+    color: #FF9900;
+   
+  }
+  h3{
+    width: 340;
+    height: 57;
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    margin: 0px;
+  }
+ }
+
+ p{
+   font-family: Syne;
+   font-weight: 700;
+   font-size: 50px;
+   height: fit-content;
+   margin: 0px;
+   margin-bottom: -28px;
+   display: flex;
+   justify-content: end;
+  }
+
+ // Sichtbar machen beim Hover über projectsCtn
+.projectsCtn:hover .textCtn {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0); // Zielposition
+}
+
+ span{
+  font-family: Syne;
+  font-weight: 700;
+  font-size: 50px;
+  margin-left: -150px;
+  height: fit-content;
+ }
+
+ .btnCtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+button{
+  margin-top: 25px;
+  width: 189px;
+  height: 65.35887145996094px;
+  gap: 86px;
+  border: 4px solid #000000;
+  background-color: #FFFCF3;
+  font-family: Overpass;
+  font-weight: 400;
+  font-size: 23px;
+  box-shadow: 5px 5px 15px 0px #00000026;
+  transition: ease-in 0.1s;
+  }button:hover{
+   width: 250px;
+   font-weight: 700;
+   cursor: pointer;
+  }button:active{
+  background-color: #000000;
+  color: white;
+}

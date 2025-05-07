@@ -40,7 +40,7 @@
 .navbar {
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 3;
   @include background(#FFFCF3);
   @include display(flex, space-between, center);
   @include sizing(100%, 92px);
