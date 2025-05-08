@@ -1,29 +1,23 @@
- 
-  <div class="projectsCtn">
+<div class="projectsCtn">
 
-    <div class="imgWrapper">
-       <div class="frame">
-        <img src="./assets/img/ArrowButton.webp" alt="Arrow" class="arrow-icon">
-       </div>
-       <img src="./assets/img/join.webp" alt="">
+  <div class="imgWrapper">
+    <div class="frame">
+      <img src="./assets/img/ArrowButton.webp" alt="Arrow" class="arrow-icon">
     </div>
-    
-    
-   <div>
-    <p>01/04</p>
+    <img [src]="project.imgSrc" [alt]="project.title">
+  </div>
+
+  <div>
+    <p>{{ project.id }}</p>
     <div class="textCtn">
-      <h1>Join</h1>
-      <h2>Angular | TypScript | HTML | CSS | Firebase</h2>
-      <h3>
-        Task manager inspired by the Kanban System. Create and 
-        organize tasks using drag and drop functions, assign users and 
-        categories.
-       </h3>
-       <div class="btnCtn">
+      <h1>{{ project.title }}</h1>
+      <h2>{{ project.technologies }}</h2>
+      <h3>{{ project.description }}</h3>
+      <div class="btnCtn">
         <button>Github</button>
         <button>Live Test</button>
       </div>
     </div>
-   <div>
-  
+  </div>
+
 </div>

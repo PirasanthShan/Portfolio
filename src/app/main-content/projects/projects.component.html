@@ -1,1 +1,10 @@
+<div class="projectMainCtn">
+  <app-header></app-header>
 
+  <ng-container *ngFor="let project of projects">
+    <ng-container
+      [ngComponentOutlet]="project.component"
+      [ngComponentOutletInputs]="{ project: project }">
+    </ng-container>
+  </ng-container>
+</div>
