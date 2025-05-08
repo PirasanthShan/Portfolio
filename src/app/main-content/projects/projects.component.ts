@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { JoinComponent } from './join/join.component';
 import { WastelandEcheosComponent } from './wasteland-echeos/wasteland-echeos.component';
