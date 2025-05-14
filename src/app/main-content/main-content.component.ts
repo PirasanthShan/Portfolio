@@ -7,6 +7,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ReferencesComponent } from './references/references.component';
 import { ArrowRightComponent } from './arrow-right/arrow-right.component';
 import { ArrowLeftComponent } from './arrow-left/arrow-left.component';
+import { EmailContactComponent } from './email-contact/email-contact.component';
 
 @Component({
   selector: 'app-main-content',
@@ -19,6 +20,7 @@ import { ArrowLeftComponent } from './arrow-left/arrow-left.component';
             ArrowLeftComponent,
             ProjectsComponent,
             ReferencesComponent,
+            EmailContactComponent,
   ],
   templateUrl: './main-content.component.html',
   styleUrl: './main-content.component.scss'
