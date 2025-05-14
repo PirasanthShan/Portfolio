@@ -1,20 +1,17 @@
 .aboutContainer{
-  position: absolute;
-  top: 927px;
   width: 100%;
-  height: 681px;
- 
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 150px;
   .mainContainer{
-  width: 1259px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin-left: 100px;
-  margin-right: 100px;
+   width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    margin-left: 150px;
+    margin-right: 150px;
  }
 }
 
@@ -29,6 +26,7 @@ h1{
   color: #000000;
   margin: 0px;
   transition: color 0.2s ease; 
+  text-align: start;
   &:hover{
    color: #FF9900;
   }
@@ -44,13 +42,10 @@ h1{
 
 .aboutMeContainer{
   display: flex;
-  justify-content: flex-end;
   flex-direction: column;
+  justify-content: space-between;
   width: 50%;
-  height: 426px;
-  position: absolute;
-  top: 150px;
-  left: 170px;
+  height: auto; // besser als feste Höhe
 }
 
 .locationCtn{
@@ -73,32 +68,28 @@ h1{
  } 
 
 .imgContainer{
-  position: absolute;
-  top: 150px;
-  right: 250px;
-  width: 375.8951110839844px;
-  height: 375.8951110839844px;
+  position: relative; //
+  width: auto;
+  height: auto;
   overflow: visible; /* allow overlay to overflow */
   img{
    display: block;
-   width: 500px;
-   height: 500px;
+   max-width: 700px;
+   max-height: 700px;
    object-fit: cover;
   }
  }
 
 .imgContainer .frame {
   position: absolute;
-  top: 20px;            
-  right: -150px;       
   transition: 0.5ms;
   pointer-events: none;  
 }
 .imgContainer:hover .frame {
-  width: 490.895px;
-  height: 490.895px;
+  width: 700px;
+  height: 700px;
   top: 20px;                
-  right: -140px;        
+  right: -20px;       
   border: 4px solid #000;
   box-sizing: border-box;
 }
@@ -116,9 +107,8 @@ button {
   font-weight: 400;
   font-size: 23px;
   line-height: 100%;
-  position: absolute;
-  top: 450px;
-  left: 500px;
+  margin: auto;
+  margin-top: 50px;
   transition: 
   transform 0.2s ease,
   box-shadow 0.2s ease,

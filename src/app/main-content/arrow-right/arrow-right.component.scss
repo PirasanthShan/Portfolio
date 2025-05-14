@@ -1,11 +1,10 @@
 .arrowRightCtn {
   width: 100%;
   height: 300px;
-  position: absolute;
-  top: 1600px;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 
   img {
     width: 200px;
