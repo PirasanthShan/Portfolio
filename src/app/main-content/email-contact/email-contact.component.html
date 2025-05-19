@@ -1,26 +1,70 @@
 <section>
- 
   <div>
-   <h1> Say Hi!</h1>
+    <h1>Say Hi!</h1>
   </div>
-  
+
   <div>
     <h2>Want to discuss a new project?</h2>
-    <h3>Say hello! let's discuss your ideas and make it happen</h3>
+    <h3>Say hello! Let's discuss your ideas and make it happen</h3>
   </div>
 
   <div class="inputCtn">
-    <input class="input"  placeholder="Your name" type="Your Name">
-    <input class="input"  placeholder="Your email" type="Your email">
-    <textarea class="textInput" placeholder="Your message" type="Your message"></textarea>
-      <div class="checkCtn">
-        <img src="./assets/img/blanketCheck.webp" alt="">
-        <p>I've read the privacy policy and agree to the processing of my data as outlined.</p>
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+
+      <!-- Name Field -->
+     <div class="floatingInput">
+      <input [(ngModel)]="contactData.name"
+         id="name"
+         name="name"
+         class="input"
+         required
+         #name="ngModel" />
+       <label for="name">Your name</label>
       </div>
-    <button>Send message</button>
+      <span *ngIf="name.invalid && name.touched" class="warnInput">Your name is required</span>
+
+      <!-- Email Field -->
+       <div class="floatingInput">
+         <input [(ngModel)]="contactData.email"
+             id="email"
+             name="email"
+             class="input"
+             type="email"
+             required
+             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+             #email="ngModel">
+          <label for="email">Your email</label>
+        </div>
+        <span *ngIf="email.invalid && email.touched" class="warnInput">Your email is required</span>
+
+      <!-- Message Field -->
+      <label for="message">Subject</label>
+      <textarea [(ngModel)]="contactData.message"
+                id="message"
+                name="message"
+                class="textInput"
+                placeholder="Your message"
+                required
+                #message="ngModel"></textarea>
+      <span *ngIf="!isMessageValid() && message.touched" class="warnInput">Your message is empty</span>
+
+      <!-- Checkbox Info Image -->
+      <div class="checkCtn">
+        <img
+            [src]="currentImage"
+            alt="Check Icon"
+            width="24"
+            height="24"
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()" />
+        <p>
+          I've read the <span [class.highlight]="isCheckboxHovered">privacy policy</span>
+          and agree to the processing of my data as outlined.
+        </p>
+      </div>
+
+      <!-- Submit -->
+      <input class="button" type="submit" value="Send message">
+    </form>
   </div>
-
-  
-
-
 </section>

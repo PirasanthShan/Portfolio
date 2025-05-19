@@ -29,7 +29,7 @@ export class ProjectsComponent {
       title: 'Join',
       technologies: 'Angular | TypeScript | HTML | CSS | Firebase',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      imgSrc: './assets/img/join.webp',
+      imgSrc: './assets/img/join-700.webp',
       githubUrl: '#',
       liveTestUrl: '#'
     },
@@ -39,7 +39,7 @@ export class ProjectsComponent {
       title: 'Wasteland Echoes',
       technologies: 'JavaScript | HTML | CSS',
       description: 'A simple Jump-and-Run game based on an object-oriented approach. Help sharkie to find coins and poison bottles to fight against the killer whale.',
-      imgSrc: './assets/img/wastelandecheos.webp',
+      imgSrc: './assets/img/wastelandecheos-700.webp',
       githubUrl: '#',
       liveTestUrl: '#'
     },
@@ -49,7 +49,7 @@ export class ProjectsComponent {
       title: 'Lieferando',
       technologies: 'JavaScript | HTML | CSS',
       description: 'A simple food delivery app inspired by Lieferando. Users can browse restaurants, add items to a cart, and place orders. Built with a clean UI and basic authentication to simulate a real-world delivery service.',
-      imgSrc: './assets/img/lieferando.webp',
+      imgSrc: './assets/img/lieferando-700.webp',
       githubUrl: '#',
       liveTestUrl: '#'
     },
@@ -59,7 +59,7 @@ export class ProjectsComponent {
       title: 'Pokédex',
       technologies: 'JavaScript | HTML | CSS | API',
       description: 'Based on the PokéAPI, a simple library that provides and catalogues Pokémon information.',
-      imgSrc: './assets/img/pokedex.webp',
+      imgSrc: './assets/img/pokedex-700.webp',
       githubUrl: '#',
       liveTestUrl: '#'
     }
