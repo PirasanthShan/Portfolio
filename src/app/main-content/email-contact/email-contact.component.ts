@@ -21,6 +21,9 @@ export class EmailContactComponent {
   }
 
    mailTest = true
+   checkboxAccepted = false;
+   showPrivacyWarning = false;
+
 
    post = {
     endPoint: 'https://deineDomain.de/sendMail.php',
@@ -33,44 +36,84 @@ export class EmailContactComponent {
     },
   };
 
-  onSubmit(ngForm: NgForm) {
-    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: (response) => {
-
-            ngForm.resetForm();
-          },
-          error: (error) => {
-            console.error(error);
-          },
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-
-      ngForm.resetForm();
-    }
+ onSubmit(ngForm: NgForm) {
+  if (!this.checkboxAccepted) {
+    this.showPrivacyWarning = true;
   }
-  
-  isMessageValid(): boolean {
+
+  Object.values(ngForm.controls).forEach(control => {
+    control.markAsTouched();
+  });
+
+  if (ngForm.invalid || !this.isMessageValid() || !this.checkboxAccepted) {
+    return;
+  }
+
+  // Nachricht senden
+  if (!this.mailTest) {
+    this.http.post(this.post.endPoint, this.post.body(this.contactData))
+      .subscribe({
+        next: () => this.resetForm(ngForm),
+        error: (error) => console.error(error),
+        complete: () => console.info('send post complete'),
+      });
+  } else {
+    this.resetForm(ngForm); // Test-Fall
+  }
+}
+
+ resetForm(form: NgForm) {
+ form.resetForm();
+ this.contactData = {
+    name: '',
+    email: '',
+    message: ''
+  };
+  this.checkboxAccepted = false;
+  this.showPrivacyWarning = false;
+  this.currentImage = this.defaultImage;
+ }
+
+
+
+
+ isFormReady(form: NgForm): boolean {
+  return !!form?.valid && this.isMessageValid() && !!this.checkboxAccepted;
+}
+
+
+ isMessageValid(): boolean {
     return this.contactData.message.trim().length > 0;
   }
  
   
   
   defaultImage = './assets/img/blanketCheck.webp';
-  hoverImage = './assets/img/CheckDefaulthover.webp';
+  hoverImage = './assets/img/Check.webp';
 
   currentImage = this.defaultImage;
   isCheckboxHovered = false;
 
-  onMouseEnter() {
+   onMouseEnter() {
+  if (!this.checkboxAccepted) {
     this.currentImage = this.hoverImage;
     this.isCheckboxHovered = true;
   }
+  }
 
   onMouseLeave() {
+  if (!this.checkboxAccepted) {
     this.currentImage = this.defaultImage;
     this.isCheckboxHovered = false;
+   }
   }
+
+
+  toggleCheckbox() {
+  this.checkboxAccepted = !this.checkboxAccepted;
+  this.showPrivacyWarning = false;
+  this.currentImage = this.checkboxAccepted ? this.hoverImage : this.defaultImage;
+}
+
+
 }
