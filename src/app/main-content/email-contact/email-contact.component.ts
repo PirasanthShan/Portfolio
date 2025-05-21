@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, HostBinding } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './email-contact.component.scss'
 })
 export class EmailContactComponent {
-
+  @HostBinding('attr.id') id = 'email';
   http = inject(HttpClient);
   
   contactData = {

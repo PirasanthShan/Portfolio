@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-myskills',
@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 })
 
 export class MyskillsComponent {
+   @HostBinding('attr.id') id = 'myskills'; 
   images = [
     { src: './assets/img/Property 1=Angular.webp',        alt: 'Angular',         label: 'Angular' },
     { src: './assets/img/Property 1=Typescript.webp',     alt: 'TypeScript',      label: 'TypeScript' },

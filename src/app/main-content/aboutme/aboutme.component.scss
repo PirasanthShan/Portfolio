@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  padding-top: 100px;  
+  margin-top: -100px;  
+}
+
 .aboutContainer{
   width: 100%;
   display: flex;
@@ -116,6 +122,11 @@ button {
   cursor: pointer;
 }
 
+a{
+  display: flex;
+  text-decoration: none;
+}
+
 
 button:hover {
   transform: translateY(-4px) scale(1.05);
@@ -129,6 +140,7 @@ button:active {
   background-color: #000000;     
   color: #ffffff;          
 }
+
 
   
 

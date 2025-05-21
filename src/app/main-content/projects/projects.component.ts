@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component,HostBinding} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { JoinComponent } from './join/join.component';
 import { WastelandEcheosComponent } from './wasteland-echeos/wasteland-echeos.component';
@@ -13,15 +13,13 @@ import { Project } from './interface';
   imports: [
     CommonModule,
     HeaderComponent,
-    JoinComponent,
-    WastelandEcheosComponent,
-    LieferandoComponent,
-    PokedexComponent
-  ],
+    ],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent {
+
+   @HostBinding('attr.id') id = 'portfolio'; 
   projects: Project[] = [
     {
       id: '01/04',

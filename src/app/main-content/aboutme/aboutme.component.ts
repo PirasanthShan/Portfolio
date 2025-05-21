@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-aboutme',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './aboutme.component.scss'
 })
 export class AboutmeComponent {
-
+ @HostBinding('attr.id') id = 'aboutme';
 }

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
@@ -10,5 +10,5 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrl: './landingpage.component.scss'
 })
 export class LandingpageComponent {
-
+ @HostBinding('attr.id') id = 'landingpage';
 }

@@ -24,7 +24,7 @@ section{
   margin-left: 200px;
   transition:  0.1s ease-in;
  }h1:hover{
-  color: orange;
+  color:rgba(255, 153, 0, 1);
  }
 }
 
@@ -35,7 +35,7 @@ h2{
  line-height: 120%;
  letter-spacing: 0%;
  text-align: center;
- color: orange;
+ color: rgba(255, 153, 0, 1);
 
 
 }
@@ -189,7 +189,7 @@ p{
 }
 
 span{
-  color: orange;
+  color: rgba(255, 153, 0, 1);
   cursor: pointer;
 }
 
@@ -220,10 +220,10 @@ span{
 }
 
 .highlight {
-  color: orange;
+  color: rgba(255, 153, 0, 1);
   font-weight: normal;
   text-decoration: none;
-  border-bottom: 1px solid orange;
+  border-bottom: 1px solid rgba(255, 153, 0, 1);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
