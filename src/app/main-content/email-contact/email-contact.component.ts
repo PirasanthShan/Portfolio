@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, HostBinding } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { TranslationService } from './../../translation.service';
+
 
 @Component({
   selector: 'app-email-contact',
@@ -11,6 +13,8 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './email-contact.component.scss'
 })
 export class EmailContactComponent {
+ 
+  constructor(public translation: TranslationService) {}
   @HostBinding('attr.id') id = 'email';
   http = inject(HttpClient);
   
@@ -24,8 +28,7 @@ export class EmailContactComponent {
    checkboxAccepted = false;
    showPrivacyWarning = false;
 
-
-   post = {
+  post = {
     endPoint: 'https://deineDomain.de/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
@@ -49,7 +52,7 @@ export class EmailContactComponent {
     return;
   }
 
-  // Nachricht senden
+  
   if (!this.mailTest) {
     this.http.post(this.post.endPoint, this.post.body(this.contactData))
       .subscribe({
@@ -58,7 +61,7 @@ export class EmailContactComponent {
         complete: () => console.info('send post complete'),
       });
   } else {
-    this.resetForm(ngForm); // Test-Fall
+    this.resetForm(ngForm); 
   }
 }
 
@@ -74,20 +77,15 @@ export class EmailContactComponent {
   this.currentImage = this.defaultImage;
  }
 
-
-
-
- isFormReady(form: NgForm): boolean {
+ 
+  isFormReady(form: NgForm): boolean {
   return !!form?.valid && this.isMessageValid() && !!this.checkboxAccepted;
 }
 
-
- isMessageValid(): boolean {
+  isMessageValid(): boolean {
     return this.contactData.message.trim().length > 0;
   }
  
-  
-  
   defaultImage = './assets/img/blanketCheck.webp';
   hoverImage = './assets/img/Check.webp';
 
@@ -107,7 +105,6 @@ export class EmailContactComponent {
     this.isCheckboxHovered = false;
    }
   }
-
 
   toggleCheckbox() {
   this.checkboxAccepted = !this.checkboxAccepted;

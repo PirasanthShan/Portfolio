@@ -1,9 +1,8 @@
 <div class="navbar">
- 
   <div class="logoCtn">
-     <a href="">
-       <img src="./assets/img/LogoName.webp" alt="">
-     </a>
+    <a href="">
+      <img src="./assets/img/LogoName.webp" alt="">
+    </a>
   </div>
 
   <div class="translateMenu">
@@ -25,30 +24,29 @@
   
     <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
   </div>
-
 </div>
 
+<div class="dropDownMenu" [class.open]="isOpen">
+  <span class="aboutMe">
+    <a href="#aboutme">{{ translation.getTranslation('aboutMe') }}</a>
+  </span>
+  <span class="aboutMe">
+    <a href="#myskills">{{ translation.getTranslation('mySkills') }}</a>
+  </span>
+  <span class="aboutMe">
+    <a href="#portfolio">{{ translation.getTranslation('portfolio') }}</a>
+  </span>
 
-<div class="dropDownMenu" [class.open]="isOpen" >
- 
-  <span class="aboutMe"><a href="#aboutme">About me</a></span>
-  <span class="aboutMe"><a href="#myskills">My Skills</a></span>
-  <span class="aboutMe"><a href="#portfolio">Portfolio</a></span>
-  
   <div class="emailIconSection">
-   
     <div class="emailCtn"> 
-      <span>Say Hi!</span>
+      <span>{{ translation.getTranslation('sayHi') }}</span>
       <p class="email">pirasanth&#64;live.de</p>
     </div>
     
     <div class="imgCtn">
-      <img class="imgGitHub" src="./assets/img/Github.webp" alt="">
-      <img class="imgEmail" src="./assets/img/Email.webp" alt="">
-      <img class="inImg" src="./assets/img/in.webp" alt="">
+      <img class="imgGitHub" src="./assets/img/Github.webp" alt="GitHub">
+      <img class="imgEmail" src="./assets/img/Email.webp" alt="Email">
+      <img class="inImg" src="./assets/img/in.webp" alt="LinkedIn">
     </div>
-  
-  </div>  
-
-
+  </div>
 </div>

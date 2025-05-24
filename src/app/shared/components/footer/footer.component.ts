@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { TranslationService } from '../../../translation.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -10,5 +12,6 @@ import { Component } from '@angular/core';
 })
 
 export class FooterComponent {
+constructor(public translation: TranslationService) {}
 
 }

@@ -102,7 +102,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 35px;
+  gap: 60px;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
@@ -140,7 +140,7 @@
   position: relative;
   @include sizing(580px, 130px);
   @include display(flex, center, center);
-  @include font(Syne, 700, 96px);
+  @include font(Syne, 700, 100px);
   overflow: hidden;
 
   &::before {
@@ -187,7 +187,7 @@
   flex-direction: column;
   position: relative;
   z-index: 2;
-  right: 600px;
+  right: 800px;
   bottom: 20px;
 
   span {

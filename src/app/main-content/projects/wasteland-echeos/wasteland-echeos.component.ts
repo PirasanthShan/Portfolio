@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Project } from '../interface';
+import { TranslationService } from '../../../translation.service';
 
 
 
@@ -13,4 +14,5 @@ import { Project } from '../interface';
 })
 export class WastelandEcheosComponent {
   @Input() project!: Project;
+  constructor(public translation: TranslationService) {}
 }

@@ -1,35 +1,22 @@
 <app-navbar></app-navbar>
+
 <section class="landingPage">
-  
-  
   <div class="frontEnd">
-      <h1>Frontend Developer</h1>
-      <div class="nameCtn">
-          <p>Pirasanth Shanmuganathan</p>
-          <div class="custom-line"></div>
-      </div> 
+    <h1>{{ translation.getTranslation('landingTitle') }}</h1>
+    <div class="nameCtn">
+      <p>Pirasanth Shanmuganathan</p>
+      <div class="custom-line"></div>
+    </div>
   </div>
-
-  
-
-  
-
-
-
 
   <div class="emailCtn">
-      <a href="">pirasanth&#64;live.de</a>
+    <a href="mailto:pirasanth@live.de">pirasanth&#64;live.de</a>
   </div>
-    
-    <div class="scrollDownCtn">
-      
-      <div class="scrollCtn">
-        <img src="./assets/img/ArrowScroll.webp" alt="">
-      </div>
 
-      <p>Scroll Down</p>
-    
+  <div class="scrollDownCtn">
+    <div class="scrollCtn">
+      <img src="./assets/img/ArrowScroll.webp" alt="">
     </div>
-
-
+    <p>{{ translation.getTranslation('scrollDown') }}</p>
+  </div>
 </section>

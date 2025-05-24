@@ -1,4 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
+import { TranslationService } from '../../translation.service';
 
 @Component({
   selector: 'app-aboutme',
@@ -9,4 +10,7 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class AboutmeComponent {
  @HostBinding('attr.id') id = 'aboutme';
+ constructor(public translation: TranslationService) {}
+ 
+  
 }
