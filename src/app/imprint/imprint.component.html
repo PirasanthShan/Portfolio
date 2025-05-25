@@ -1,1 +1,26 @@
-<p>imprint works!</p>
+<div class="navbar">
+  <div class="logoCtn">
+    <a href="">
+      <img src="./assets/img/LogoName.webp" alt="">
+    </a>
+  </div>
+
+  <div class="translateMenu">
+    <span 
+      [ngClass]="{
+        'black-border': selectedLang === 'DE' && borderState === 'black',
+        'green-border': selectedLang === 'DE' && borderState === 'green'
+      }" 
+      (click)="setLang('DE')"
+    >DE</span>
+  
+    <span 
+      [ngClass]="{
+        'black-border': selectedLang === 'EN' && borderState === 'black',
+        'green-border': selectedLang === 'EN' && borderState === 'green'
+      }"
+      (click)="setLang('EN')"
+    >EN</span>
+  </div>
+</div>
+

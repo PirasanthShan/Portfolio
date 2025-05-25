@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, HostBinding } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { TranslationService } from './../../translation.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-email-contact',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './email-contact.component.html',
   styleUrl: './email-contact.component.scss'
 })

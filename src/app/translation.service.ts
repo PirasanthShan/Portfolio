@@ -26,7 +26,9 @@ export type TranslationKey =
   | 'portfolio'
   | 'portfolioText'
   | 'references'
-  | 'referencesText';
+  | 'referencesText'
+  | 'privacyTitle'
+  | 'legalTitle';
 
 /** Übersetzungsobjekt pro Sprache */
 type TranslationMap = Record<TranslationKey, string>;
@@ -64,7 +66,9 @@ export class TranslationService {
       portfolio: 'Portfolio',
       portfolioText: 'Explore a selection of my work here - Interact with projects to see my skills in action.',
       references: 'References',
-      referencesText: 'I thrive both independently and as part of a team. Here’s what my colleagues have to say about working with me.'
+      referencesText: 'I thrive both independently and as part of a team. Here’s what my colleagues have to say about working with me.',
+      privacyTitle: 'Privacy Policy',
+      legalTitle: 'Legal Notice'
     },
     DE: {
       landingTitle: 'Frontend Entwickler',
@@ -91,7 +95,9 @@ export class TranslationService {
       portfolio: 'Portfolio',
       portfolioText: 'Hier findest du eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten zu erleben.',
       references: 'Referenzen',
-      referencesText: 'Ich arbeite sowohl eigenständig als auch im Team gerne. Das sagen Kolleginnen und Kollegen über die Zusammenarbeit mit mir.'
+      referencesText: 'Ich arbeite sowohl eigenständig als auch im Team gerne. Das sagen Kolleginnen und Kollegen über die Zusammenarbeit mit mir.',
+      privacyTitle: 'Datenschutzerklärung',
+      legalTitle: 'Impressum'
     }
   };
 

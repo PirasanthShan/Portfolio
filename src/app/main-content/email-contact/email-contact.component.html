@@ -78,7 +78,16 @@
              (mouseleave)="onMouseLeave()"
              style="cursor: pointer" />
         <p>
-          {{ translation.getTranslation('acceptPrivacy') }}
+          <ng-container *ngIf="translation.currentLanguage === 'EN'; else germanText">
+            I've read the 
+            <a class="highlight" [routerLink]="'/privacy'" rel="noopener">privacy policy</a>
+            and agree to the processing of my data as outlined.
+          </ng-container>
+          <ng-template #germanText>
+            Ich habe die 
+            <a class="highlight"  [routerLink]="'/privacy'" rel="noopener">Datenschutzerklärung</a>
+            gelesen und stimme der Verarbeitung meiner Daten zu.
+          </ng-template>
         </p>
       </div>
 
