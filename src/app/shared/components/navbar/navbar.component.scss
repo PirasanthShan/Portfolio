@@ -28,10 +28,10 @@
   left: 0;
 }
 
-// Animations
+ // Animations
 @keyframes bounceIn {
   0% { transform: translateY(-100%); opacity: 0; }
-  60% { transform: translateY(30px); opacity: 1; }
+  60% { transform: translateY(0px); opacity: 1; }
   80% { transform: translateY(-10px); }
   100% { transform: translateY(0); opacity: 1; }
 }
@@ -95,7 +95,7 @@
 // Dropdown Menu Styles
 .dropDownMenu {
   @include sizing(100%, 70%);
-  position: absolute;
+  position: fixed;
   top: 92px;
   @include background(#FFFCF3);
   z-index: 1;
@@ -117,23 +117,25 @@
   &::after {
     content: "";
     @include position();
-    @include sizing(100%, 0);
+    @include sizing(100%, 320px); // ✅ feste Höhe bleibt immer gleich!
     background-color: black;
     z-index: 0;
     clip-path: polygon(0px 0px, 100% 220px, 100% 320px, 0px 320px);
-    transition: height 0.4s ease;
+    transform: translateY(100%); // ✅ Start außerhalb
+    transition: transform 0.4s ease; // ✅ animiere Position, nicht Größe
   }
 
   &.open {
     opacity: 1;
     pointer-events: auto;
-    animation: bounceIn 0.6s ease forwards;
+    animation: bounceIn 0.4s ease forwards;
 
     &::after {
-      height: 320px;
+      transform: translateY(0); // ✅ reinfahren lassen
     }
   }
 }
+
 
 // Other Sections
 .aboutMe {
@@ -219,4 +221,175 @@
   .imgGitHub { @include sizing(40px, 40px); transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
 
   .inImg { @include sizing(36px, 30px); margin-top: 11px; transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
+}
+
+// 📱 Responsive Styles – Bis runter auf 320px
+@media screen and (max-width: 768px) {
+  .logoCtn {
+    margin-left: 30px;
+
+    img {
+      @include sizing(60px, 50px);
+    }
+  }
+
+  .translateMenu {
+    margin-right: 30px;
+    gap: 12px;
+
+    span {
+      font-size: 18px;
+    }
+
+    img {
+      margin-left: 20px;
+      @include sizing(40px, 32px);
+    }
+  }
+
+  .aboutMe {
+    @include sizing(400px, 100px);
+    font-size: 70px;
+
+    &::before {
+      @include sizing(35px, 35px);
+    }
+
+    @keyframes snakeRun {
+      0% { left: 0; width: 80px; }
+      100% { left: 260px; width: 200px; }
+    }
+  }
+
+  .emailCtn {
+    right: 400px;
+
+    span {
+      font-size: 55px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .imgCtn {
+    left: 300px;
+    gap: 24px;
+
+    .imgEmail,
+    .imgGitHub {
+      @include sizing(32px, 32px);
+    }
+
+    .inImg {
+      @include sizing(28px, 24px);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logoCtn {
+    margin-left: 16px;
+
+    img {
+      @include sizing(50px, 42px);
+    }
+  }
+
+  .translateMenu {
+    margin-right: 16px;
+    gap: 10px;
+
+    span {
+      font-size: 16px;
+    }
+
+    img {
+      margin-left: 10px;
+      @include sizing(32px, 25px);
+    }
+  }
+
+  .aboutMe {
+    @include sizing(320px, 90px);
+    font-size: 55px;
+
+    &::before {
+      @include sizing(30px, 30px);
+    }
+
+    @keyframes snakeRun {
+      0% { left: 0; width: 60px; }
+      100% { left: 200px; width: 120px; }
+    }
+  }
+
+  .emailCtn {
+    right: 200px;
+
+    span {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .imgCtn {
+    left: 150px;
+    gap: 16px;
+
+    .imgEmail,
+    .imgGitHub {
+      @include sizing(28px, 28px);
+    }
+
+    .inImg {
+      @include sizing(22px, 18px);
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .aboutMe {
+    @include sizing(280px, 80px);
+    font-size: 48px;
+
+    &::before {
+      @include sizing(24px, 24px);
+    }
+
+    @keyframes snakeRun {
+      0% { left: 0; width: 50px; }
+      100% { left: 160px; width: 100px; }
+    }
+  }
+
+  .emailCtn {
+    right: 100px;
+
+    span {
+      font-size: 34px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .imgCtn {
+    left: 80px;
+    gap: 12px;
+
+    .imgEmail,
+    .imgGitHub {
+      @include sizing(24px, 24px);
+    }
+
+    .inImg {
+      @include sizing(20px, 16px);
+    }
+  }
 }

@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="logoCtn">
-    <a href="">
+    <a href="#landingpage">
       <img src="./assets/img/LogoName.webp" alt="">
     </a>
   </div>
@@ -26,8 +26,8 @@
   </div>
 </div>
 
-<div class="dropDownMenu" [class.open]="isOpen">
-  <span class="aboutMe">
+<div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
+ <span class="aboutMe">
     <a href="#aboutme">{{ translation.getTranslation('aboutMe') }}</a>
   </span>
   <span class="aboutMe">

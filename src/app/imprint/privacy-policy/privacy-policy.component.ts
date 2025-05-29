@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { TranslationService } from '../../translation.service';
-import { NavbarComponent } from '../../main-content/landingpage/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [CommonModule],
   templateUrl: './privacy-policy.component.html',
   styleUrl: './privacy-policy.component.scss'
 })

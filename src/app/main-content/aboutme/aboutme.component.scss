@@ -142,6 +142,155 @@ button:active {
 }
 
 
+@media screen and (max-width: 1795px){
+  .aboutContainer .mainContainer{
+    margin-left: 20px;
+    margin-right: 45px;
+ }
+}
+
+
+
+@media screen and (max-width: 1500px){
+  .imgContainer{
+    img {
+    max-width: 450px;
+    
+}} 
+
+.imgContainer:hover .frame{
+    width: 450px;
+    height: 450px;
+}
+
+h1{
+  font-size: 50px;
+}
+
+.textaboutme{
+  font-size: 16px;
+}
+
+.locationCtn 
+   p {
+    font-size: 15px;
+   }
+}
+
+
+
+@media screen and (max-width: 1080px){
+ .aboutContainer
+ .mainContainer {
+  margin-top: -250px;
+  align-items: center; 
+  flex-direction: column;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+} 
+
+.frame{
+  display: none;
+}
+
+h1{
+  text-align: center;
+}
+
+.aboutMeContainer {
+ width: auto;
+ height: auto;
+ align-items: center;
+}
+
+p{
+  text-align: center;
+}
+
+.imgContainer{
+ img{
+  max-width: 600px;
+}
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+ .aboutContainer {
+  margin-top: -140px;
+} 
+
+[_nghost-ng-c2188230697]{
+   padding-top: 0px;
+  }
+
+  .imgContainer {
+   img{
+    max-width: 400px;
+   }
+ }
+}
+
+
+@media screen and (max-width: 460px){
+  img{
+     width: 350px;
+  }
+
+  .imgContainer {
+   margin-top: -50px;
+  
+ }
+}
+
+
+
+
+@media screen and (max-width: 420px){
+ .aboutContainer {
+  margin-top: -250px;
+} 
+
+[_nghost-ng-c2188230697]{
+   padding-top: 0px;
+  }
+
+  h1{
+   font-size: 35px;
+  }
+
+  .textaboutme{
+    font-size: 13px;
+  }
+
+  button{
+    margin-top: 20px;
+  }
+}
+
+
+
+@media screen and (max-width: 350px){
+  img{
+     width: 250px;
+  }
+
+}
+
   
 
  

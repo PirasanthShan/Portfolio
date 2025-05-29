@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../translation.service';
-import { NavbarComponent } from '../../main-content/landingpage/navbar/navbar.component';
+
 
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [CommonModule],
   templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss'
+  styleUrls: ['./legal-notice.component.scss']
 })
 export class LegalNoticeComponent {
-   constructor(public translation: TranslationService) {}
- 
+  constructor(public translation: TranslationService) {}
 }

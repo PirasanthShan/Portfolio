@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslationService } from '../../../translation.service';
 
 @Component({
@@ -66,5 +66,10 @@ export class NavbarComponent {
     this.borderState = 'green';
   }, 100);
 }
+
+ngOnInit(): void {
+    this.selectedLang = this.translation.currentLanguage;
+    this.borderState = 'green'; // Optional, um gleich den grünen Rahmen zu setzen
+  }
 
 }

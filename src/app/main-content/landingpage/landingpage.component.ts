@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostBinding } from '@angular/core';
-import { NavbarComponent } from './navbar/navbar.component';
 import { TranslationService } from '../../translation.service';
 
 @Component({
   selector: 'app-landingpage',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule],
   templateUrl: './landingpage.component.html',
   styleUrl: './landingpage.component.scss'
 })
