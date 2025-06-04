@@ -174,3 +174,169 @@
   background-color: #000000;
   color: white;
 }
+
+@media screen and (min-width: 1265px){
+  .hidden{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1265px){
+  .uphidden{
+    display: none;
+  }
+
+  .projectsCtn{
+    flex-direction: column;
+    margin-top: 160px;
+    gap: 20px;
+  }
+
+  p{
+    margin-bottom: -10px;
+  }
+
+  .textCtn{
+    margin-top: -70px;
+  }
+}
+
+
+@media screen and (max-width: 780px){
+.projectsCtn {
+
+    margin-right: 45px;
+    margin-left: 10px;
+    
+    
+  .imgWrapper{
+    width: 100%;
+  .frame{
+    top: 5px;
+    right: 1px;
+    bottom: 5px;
+    left: 6px;
+
+    .arrow-icon{
+    top: 70px;
+    right: -20px;
+    width: 40px;
+    }
+   }
+  }
+ }
+
+p{
+  font-size: 35px;
+}
+
+img{
+  height: auto;
+}
+
+.textCtn{
+  margin-top: -100px;
+  h1{
+  font-size: 25px;
+ }
+ h2{
+  font-size: 15px;
+ }
+ h3{
+  font-size: 13px;
+ }
+}
+
+.btnCtn{
+  justify-content: flex-start;
+}
+
+.btn{
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover{
+    width: 150px;
+  }
+ }
+}
+  
+
+@media screen and (max-width: 600px){
+  .projectsCtn {
+    margin-top: 100px;
+    align-items: center;
+ }
+
+ .textCtn{
+  width: 100%;
+ }
+}
+
+
+@media screen and (max-width: 436px){
+     .projectsCtn .imgWrapper {
+        width: 90%;
+    }
+
+    p{
+      font-size: 25px;
+      
+    }
+
+    .textCtn{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 380px){
+     .projectsCtn {
+       margin-top: 60px;
+       margin-left: 0px;
+       margin-right: 0px;
+     .imgWrapper {
+        width: 80%;
+      .frame{
+         .arrow-icon{
+        top: 20px;
+        right: -15px;
+        width: 30px;
+    }
+      }
+    }
+   }
+    
+   
+   p{
+      font-size: 25px;
+      
+    }
+
+    .textCtn{
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        h3{
+         width: 250px;
+        }
+    }
+
+        .btn{
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+}
+
+     .arrow-icon{
+        top: 20px;
+        right: -15px;
+        width: 30px;
+    }
+
+}

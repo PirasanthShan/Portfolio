@@ -1,7 +1,7 @@
 <div class="projectsCtn">
 
   <div>
-    <p>{{ project.id }}</p>
+    <p class="uphidden">{{ project.id }}</p>
     <div class="textCtn">
       <h1>{{ project.title }}</h1>
       <h2>{{ project.technologies }}</h2>
@@ -12,11 +12,12 @@
       </div>
     </div>
   </div>
-
+  
   <div class="imgWrapper">
     <div class="frame">
       <img src="./assets/img/ArrowButton.webp" alt="Arrow" class="arrow-icon">
     </div>
+    <p class="hidden">{{ project.id }}</p>
     <img [src]="project.imgSrc" [alt]="project.title">
   </div>
 
