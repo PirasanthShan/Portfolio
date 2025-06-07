@@ -326,6 +326,60 @@ span{
   }
 }
 
+@media screen and (max-width: 1000px){
+
+  section{
+    clip-path: polygon(100% 10%, 100% 100%, 0% 100%, 0% 15%);
+  }
+  .header{
+    justify-content: center;
+    h1{
+      font-size: 60px;
+      margin: 0px;
+    }
+  }
+
+  .pfeiToTop{
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 650px){
+
+  section{
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 5%);
+  }
+  .header{
+    justify-content: center;
+    h1{
+      font-size: 60px;
+      margin: 0px;
+    }
+  }
+
+  .pfeiToTop{
+    display: none;
+  }
+
+  .floatingInput {
+    position: relative;
+    width: 90%;
+  }
+
+  .warnInput{
+   margin-left: 60px;
+   }
+
+   .floatingTextarea{
+    width: 90%;
+   }
+
+   .checkCtn {
+   padding: 20px;
+  }
+}
+
 
 
 
