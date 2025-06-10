@@ -98,3 +98,27 @@ span{
   }
 }
 
+
+@media screen and (max-width: 700px){
+  section{
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+  }
+
+  .leftFooter{
+    align-items: center;
+    margin-left: 0px;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .rightFooter{
+    margin-right: 0px;
+    gap: 15px;
+  }
+
+  .legalCtn{
+    justify-content: center;
+  }
+}

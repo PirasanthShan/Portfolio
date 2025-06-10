@@ -139,7 +139,7 @@ export class TranslationService {
       basedIn: 'Ansässig in Münster',
       remote: 'Bereit für Remote-Arbeit',
       letsTalk: 'Lass uns reden',
-      sayHi: 'Sag Hallo!',
+      sayHi: 'Sag Hi!',
       projectQuestion: 'Willst du ein neues Projekt besprechen?',
       projectInvite: 'Sag einfach Hallo! Lass uns deine Ideen besprechen und sie umsetzen',
       yourName: 'Dein Name',

@@ -94,11 +94,11 @@
 
 // Dropdown Menu Styles
 .dropDownMenu {
-  @include sizing(100%, 70%);
+  @include sizing(100%, 850px);
   position: fixed;
   top: 92px;
   @include background(#FFFCF3);
-  z-index: 1;
+  z-index: 5;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -182,15 +182,15 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .emailCtn {
   display: flex;
   flex-direction: column;
-  position: relative;
   z-index: 2;
-  right: 800px;
-  bottom: 20px;
+  margin-left: 20px;
+  
 
   span {
     @include font(Syne, 800, 78px);
@@ -212,10 +212,10 @@
 
 .imgCtn {
   display: flex;
-  position: relative;
-  left: 650px;
-  bottom: -100px;
+  margin-bottom: 10px;
   gap: 42px;
+  align-items: end;
+  margin-right: 20px;
 
   .imgEmail,
   .imgGitHub { @include sizing(40px, 40px); transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
@@ -223,7 +223,9 @@
   .inImg { @include sizing(36px, 30px); margin-top: 11px; transition: transform 0.2s ease; &:hover { transform: translateY(-10px); } }
 }
 
-// 📱 Responsive Styles – Bis runter auf 320px
+
+
+
 @media screen and (max-width: 768px) {
   .logoCtn {
     margin-left: 30px;
@@ -352,10 +354,10 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .aboutMe {
     @include sizing(280px, 80px);
-    font-size: 48px;
+    font-size: 40px;
 
     &::before {
       @include sizing(24px, 24px);
@@ -391,5 +393,27 @@
     .inImg {
       @include sizing(20px, 16px);
     }
+  }
+
+  .dropDownMenu{
+    height: 400px;
+    gap: 10px;
+    border: none;
+  }
+
+   .dropDownMenu::after {
+    height: 240px;
+    clip-path: polygon(
+      0px 100px,
+      100% 180px,
+      100% 240px,
+      0px 240px
+    );
+  }
+
+  .aboutMe::before {
+    content: "";
+    bottom: 13px;
+    left: 14px;
   }
 }
