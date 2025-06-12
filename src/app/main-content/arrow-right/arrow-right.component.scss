@@ -26,12 +26,12 @@
   &.animating {
     .arrow-long {
       opacity: 0;
-      animation: flyArrowRight 0.5s ease-out forwards; // schnell abspielen
+      animation: flyArrowRight 1s ease-out forwards; 
       z-index: 2;
     }
 
     .arrow-short {
-      opacity: 0; // ← wird sofort unsichtbar
+      opacity: 0; 
     }
   }
 
@@ -41,8 +41,8 @@
     }
 
     .arrow-short {
-      opacity: 1; // ← wieder sichtbar
-      transform: translate(-150px, 150px); // neue Position
+      opacity: 1; 
+      transform: translate(-150px, 150px); 
     }
   }
 }

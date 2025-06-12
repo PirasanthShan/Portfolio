@@ -64,6 +64,10 @@ section {
   }
 
   @media (max-width: 600px) {
+
+    .mainContainer{
+      margin-top: 20px;
+    }
     h1 {
       font-size: 42px;
     }

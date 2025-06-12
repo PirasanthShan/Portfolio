@@ -24,7 +24,7 @@ export class ArrowRightComponent implements AfterViewInit {
         this.animateArrow(container);
         observer.disconnect();
       }
-    }, { threshold: 1 });
+    }, { threshold: 0.5 });
     observer.observe(container);
   }
 
