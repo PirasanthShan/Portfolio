@@ -1,8 +1,8 @@
-<div class="projectsCtn">
+<div class="projectsCtn" (mouseenter)="showTextOnce()">
 
-  <div>
+  <div class="FieldText">
     <p class="uphidden">{{ project.id }}</p>
-    <div class="textCtn">
+    <div class="textCtn" #textCtn>
       <h1>{{ project.title }}</h1>
       <h2>{{ project.technologies }}</h2>
       <h3>{{ project.description[translation.currentLanguage] }}</h3>

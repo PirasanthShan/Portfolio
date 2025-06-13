@@ -1,16 +1,20 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
-import { Router } from '@angular/router'; // ✅ WICHTIGER IMPORT
+import { Router } from '@angular/router'; 
 
 bootstrapApplication(AppComponent, appConfig).then(appRef => {
   const injector = appRef.injector;
-  const router = injector.get(Router); // der Router-Instanz
+  const router = injector.get(Router); 
 
-  // Scrollt bei jedem Routingwechsel nach oben
   router.events.subscribe((event: any) => {
     if (event.constructor.name === 'NavigationEnd') {
-      window.scrollTo({ top: 0 });
+      const url = event.urlAfterRedirects || event.url;
+      const hasFragment = url.includes('#');
+
+      if (!hasFragment) {
+        window.scrollTo({ top: 0 });
+      }
     }
   });
 });

@@ -58,7 +58,7 @@ export class NavbarComponent {
   setLang(lang: string): void {
   if (lang !== 'EN' && lang !== 'DE') return;
 
-  this.translation.setLang(lang); // ✅ wird jetzt nur bei erlaubtem Wert aufgerufen
+  this.translation.setLang(lang); 
   this.selectedLang = lang;
   this.borderState = 'black';
 
@@ -69,7 +69,7 @@ export class NavbarComponent {
 
 ngOnInit(): void {
     this.selectedLang = this.translation.currentLanguage;
-    this.borderState = 'green'; // Optional, um gleich den grünen Rahmen zu setzen
+    this.borderState = 'green'; 
   }
 
 }
