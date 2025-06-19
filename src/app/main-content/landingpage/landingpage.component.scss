@@ -144,6 +144,7 @@
 
 }
 
+
 @media screen and (max-width: 750px){
 .frontEnd{
   >h1{
@@ -154,6 +155,12 @@
 .custom-line {
     width: 160px;
   }
+
+  
+   .landingPage{
+    min-height: 0px;
+   }
+
 
 }
 
@@ -208,7 +215,6 @@
    }
    }
    
-
 }
 
 

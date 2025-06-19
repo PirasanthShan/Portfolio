@@ -5,9 +5,13 @@ body,html{
   scroll-behavior: smooth;
   min-width: 100vw;
   overflow-x: hidden;
-
-
 }
+
+h1[id] {
+  scroll-margin-top: 200px; // <- Exakt so hoch wie dein Navbar!
+}
+
+
 
 //Fonts//
 @font-face {

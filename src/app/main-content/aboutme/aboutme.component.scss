@@ -1,7 +1,6 @@
 :host {
   display: block;
   padding-top: 100px;  
-  margin-top: -100px;  
 }
 
 .aboutContainer{
@@ -182,7 +181,6 @@ h1{
 @media screen and (max-width: 1080px){
  .aboutContainer
  .mainContainer {
-  margin-top: -250px;
   align-items: center; 
   flex-direction: column;
   margin-left: 0px;
@@ -212,27 +210,21 @@ p{
 .imgContainer{
  img{
   max-width: 600px;
-}
-}
-
-
-
-
+  } 
+ }
 }
 
 
-
-
-
-
-
+@media screen and (max-width: 750px){
+  .aboutContainer{
+   margin-top: 250px;
+ }
+}
 
 
 
 @media screen and (max-width: 600px){
- .aboutContainer {
-  margin-top: -140px;
-} 
+ 
 
 [_nghost-ng-c2188230697]{
    padding-top: 0px;
@@ -262,7 +254,7 @@ p{
 
 @media screen and (max-width: 420px){
  .aboutContainer {
-  margin-top: -250px;
+  margin-top: 50px;
 } 
 
 [_nghost-ng-c2188230697]{
