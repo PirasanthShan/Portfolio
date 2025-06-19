@@ -1,313 +1,205 @@
-section{
- background: linear-gradient(#000000);
- width: 100%;
- height: 1061px;
- clip-path: polygon(100% 15%, 100% 100%, 0% 100%, 0% 0%);
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: column;
- position: relative;
- }
+/* ---------- Variablen ---------- */
+$black: #000;
+$bg-black: #020202;
+$white: rgba(255, 252, 243, 1);
+$orange: rgba(255, 153, 0, 1);
+$grey: rgba(187, 187, 187, 1);
+$warn-red: rgba(230, 28, 64, 1);
+
+/* ---------- Platzhalter ---------- */
+%floating-field {
+  width: 100%;
+  background: $bg-black;
+  border: none;
+  border-bottom: 2px solid $white;
+  color: $white;
+  font: 16px/normal Overpass;
+  padding: 0 40px 0 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border: 4px solid $white;
+    outline: none;
+  }
+
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px $bg-black inset !important;
+    -webkit-text-fill-color: $white !important;
+    caret-color: $white;
+  }
+}
+
+/* ---------- Basislayout ---------- */
+section {
+  background: linear-gradient($black);
+  width: 100%;
+  min-height: 1061px;
+  padding-top: 120px; // Abstand für „Say Hi“ sichtbar
+  clip-path: polygon(100% 15%, 100% 100%, 0 100%, 0 0);
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  position: relative;
+}
+
+.highlight {
+  color: $orange;
+  font-weight: normal;
+  text-decoration: none !important; // <- ganz wichtig
+
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    text-decoration: none !important; // <- auch beim Hover verhindern
+    border-bottom: none;              // <- optional, falls du es vorher hattest
+    color: lighten($orange, 10%);     // <- falls du trotzdem einen Hover-Effekt willst
+  }
+}
 
 
-.header{
+.header {
   width: 100%;
   display: flex;
-  h1{
-  font-family: Syne;
-  font-weight: 800;
-  font-size: 78px;
-  line-height: 100%;
-  letter-spacing: 1%;
+
+  h1 {
+    margin: 0 0 0 200px;
+    font: 800 78px/1 Syne;
+    letter-spacing: 1%;
+    text-align: center;
+    color: $white;
+    transition: color 0.1s ease-in;
+
+    &:hover { color: $orange; }
+  }
+}
+
+/* ---------- Typo ---------- */
+h2 {
+  font: 700 32px/1.2 Overpass;
   text-align: center;
-  color: white;
-  margin-left: 200px;
-  transition:  0.1s ease-in;
- }h1:hover{
-  color:rgba(255, 153, 0, 1);
- }
+  color: $orange;
 }
 
-h2{
- font-family: Overpass;
- font-weight: 700;
- font-size: 32px;
- line-height: 120%;
- letter-spacing: 0%;
- text-align: center;
- color: rgba(255, 153, 0, 1);
-
-
-}
-
-h3{
-  font-family: Overpass;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 120%;
-  letter-spacing: 0%;
+h3 {
+  font: 400 22px/1.2 Overpass;
   text-align: center;
-  color: white
+  color: $white;
 }
 
+p {
+  font: 400 14px/1.5 Overpass;
+  color: $white;
+}
+
+/* ---------- Form-Layout ---------- */
 .inputCtn,
- form{
+form {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   gap: 15px;
+  place-items: center;
 }
 
-
+/* ----- Floating Input & Textarea ----- */
+.floatingInput,
 .floatingTextarea {
   position: relative;
   width: 617px;
 
-  textarea {
-    width: 100%;
-    height: 202px;
-    background-color: #020202;
-    border: none;
-    border-bottom: 2px solid white;
-    color: rgba(255, 252, 243, 1);
-    font-family: Overpass;
-    font-size: 16px;
-    padding-left: 10px;
-    padding-right: 40px;
-    padding-top: 5px;
-    box-sizing: border-box;
-    resize: none;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
+  .input       { @extend %floating-field; height: 50px; }
+  textarea     { @extend %floating-field; height: 202px; padding-top: 5px; resize: none; }
 
-    &:hover,
-    &:focus {
-      border: 4px solid rgba(255, 252, 243, 1);
-      outline: none;
-    }
-
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus,
-      &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px #020202 inset !important;
-    -webkit-text-fill-color: rgba(255, 252, 243, 1) !important;
-    transition: background-color 9999s ease-in-out 0s;
-    caret-color: rgba(255, 252, 243, 1); // optional: Cursor-Farbe
-   }
- }
-
-  // Floating Label auch hier
+  .input:focus ~ label,
+  .input.ng-dirty ~ label,
   textarea:focus ~ label,
   textarea.ng-dirty ~ label {
     top: -10px;
     left: 10px;
-    background-color: #020202;
-    padding: 0 5px;
     font-size: 12px;
-    color: rgba(255, 252, 243, 0.7);
-  }
-
-  .icon {
-    position: absolute;
-    right: 13px;
-    top: 10px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 3;
-
-    img {
-      width: 25px;
-      height: 25px;
-    }
+    color: rgba($white, .7);
+    background: $bg-black;
+    padding: 0 5px;
   }
 
   label {
     position: absolute;
     top: 14px;
     left: 15px;
-    font-family: Overpass;
-    font-size: 16px;
-    color: rgba(255, 252, 243, 1);
+    font: 16px Overpass;
+    color: $white;
     pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 2;
-    background-color: #020202;
+    transition: all .2s;
+    background: $bg-black;
     padding: 0 5px;
+    z-index: 2;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 3;
+
+    img { width: 25px; height: 25px; }
   }
 }
 
-p{
- font-family: Overpass;
- font-weight: 400;
- font-size: 14px;
- line-height: 1.5;
- color: rgba(255, 252, 243, 1);
-}
-
+/* ---------- Buttons & Hinweise ---------- */
 .button {
   width: 269px;
   height: 68px;
-  border: 4px solid rgba(187, 187, 187, 1);
-  background-color: black;
-  color: rgba(187, 187, 187, 1);
-  font-family: Overpass;
-  font-weight: 400;
-  font-size: 23px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: not-allowed;
   margin-top: 15px;
+  border: 4px solid $grey;
+  background: $black;
+  color: $grey;
+  font: 400 23px Overpass;
+  text-align: center;
+  transition: all .3s;
+  cursor: not-allowed;
 
   &.active {
-    border: 4px solid rgba(255, 252, 243, 1);
-    color: rgba(255, 252, 243, 1);
+    border-color: $white;
+    color: $white;
     cursor: pointer;
 
     &:hover {
       transform: scaleX(1.1);
-      box-shadow: 0 0 12px 4px rgba(255, 165, 0, 0.7);
+      box-shadow: 0 0 12px 4px rgba(255, 165, 0, .7);
     }
   }
 }
 
-.checkCtn{
- display: flex;
- align-items: center;
- gap: 15px;
- 
+.checkCtn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 
- img {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: .2s;
   }
 }
 
-span{
-  color: rgba(255, 153, 0, 1);
-  cursor: pointer;
-}
+span      { color: $orange; cursor: pointer; }
 
-.warnInput{
-  font-family: Overpass;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 120%;
-  letter-spacing: 0%;
-  color: rgba(230, 28, 64, 1);
-  width: 100%;
-  margin-left: 20px;
-  margin-top: -5px;
+.warnInput,
+.warnInputPrivacy {
+  font: 400 12px/1.2 Overpass;
+  color: $warn-red;
   cursor: default;
 }
 
-.warnInputPrivacy{
-  font-family: Overpass;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 0%;
-    color: rgb(230, 28, 64);
-    width: 100%;
-    margin-left: 165px;
-    margin-top: -25px;
-    cursor: default;
-}
+.warnInput          { margin: -5px 0 0 20px; }
+.warnInputPrivacy   { margin: -25px 0 0 165px; }
 
-.highlight {
-  color: rgba(255, 153, 0, 1);
-  font-weight: normal;
-  text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  &:hover{
-    border-bottom: rgba(255, 153, 0, 1) ;
-  }
-}
-
-.floatingInput {
-  position: relative;
-  width: 617px;
-
-  .input {
-    width: 100%;
-    height: 50px;
-    background-color: #020202;
-    border: none;
-    border-bottom: 2px solid white;
-    color: rgba(255, 252, 243, 1);
-    font-family: Overpass;
-    font-size: 16px;
-    padding-left: 10px;
-    padding-right: 40px; // Platz für Icon
-    box-sizing: border-box;
-    position: relative;
-    z-index: 1;
-    cursor: pointer;
-
-    &:hover,
-    &:focus {
-      border: 4px solid rgba(255, 252, 243, 1);
-      outline: none;
-    }
-
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus,
-      &:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0px 1000px #020202 inset !important;
-    -webkit-text-fill-color: rgba(255, 252, 243, 1) !important;
-    transition: background-color 9999s ease-in-out 0s;
-    caret-color: rgba(255, 252, 243, 1); // optional: Cursor-Farbe
-   }
-  }
-
-  // Floating Label aktivieren bei Fokus oder Eingabe
-  .input:focus ~ label,
-  .input.ng-dirty ~ label {
-    top: -10px;
-    left: 10px;
-    background-color: #020202;
-    padding: 0 5px;
-    font-size: 12px;
-    color: rgba(255, 252, 243, 0.7);
-  }
-
-  .icon {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    z-index: 3;
-
-    img {
-      width: 25px;
-      height: 25px;
-    }
-  }
-
-  label {
-    position: absolute;
-    top: 14px;
-    left: 15px;
-    font-family: Overpass;
-    font-size: 16px;
-    color: rgba(255, 252, 243, 1);
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 2;
-    background-color: #020202;
-    padding: 0 5px;
-  }
-}
+/* ---------- Pfeil nach oben ---------- */
 .pfeiToTop {
   position: absolute;
   right: 50px;
@@ -318,71 +210,47 @@ span{
   img {
     width: 40px;
     height: 80px;
-    transition: height 0.3s ease; // ← Höhe sanft animieren
+    transition: height .3s;
 
-    &:hover {
-      height: 100px;
-    }
+    &:hover { height: 100px; }
   }
 }
 
-@media screen and (max-width: 1000px){
-
-  section{
-    clip-path: polygon(100% 10%, 100% 100%, 0% 100%, 0% 15%);
+/* ---------- Media Queries ---------- */
+@media (max-width: 1000px) {
+  section {
+    clip-path: polygon(100% 10%, 100% 100%, 0 100%, 0 15%);
   }
-  .header{
+
+  .header {
     justify-content: center;
-    h1{
+
+    h1 {
       font-size: 60px;
-      margin: 0px;
+      margin-left: 0;
     }
   }
 
-  .pfeiToTop{
+  .pfeiToTop {
     display: none;
   }
 }
 
-
-@media screen and (max-width: 650px){
-
-  section{
-    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 5%);
-  }
-  .header{
-    justify-content: center;
-    h1{
-      font-size: 60px;
-      margin: 0px;
-    }
+@media (max-width: 650px) {
+  section {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 5%);
   }
 
-  .pfeiToTop{
-    display: none;
-  }
-
-  .floatingInput {
-    position: relative;
+  .floatingInput,
+  .floatingTextarea {
     width: 90%;
   }
 
-  .warnInput{
-   margin-left: 60px;
-   }
+  .warnInput {
+    margin-left: 60px;
+  }
 
-   .floatingTextarea{
-    width: 90%;
-   }
-
-   .checkCtn {
-   padding: 20px;
+  .checkCtn {
+    padding: 20px;
   }
 }
-
-
-
-
-
-
-
