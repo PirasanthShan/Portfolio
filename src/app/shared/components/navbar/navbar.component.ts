@@ -72,4 +72,12 @@ ngOnInit(): void {
     this.borderState = 'green'; 
   }
 
+closeMenu(): void {
+  this.isOpen = false;
+  this.currentFrame = this.startFrame;
+  this.showBackground = false;
+  if (this.intervalId) clearInterval(this.intervalId);
+}
+
+
 }

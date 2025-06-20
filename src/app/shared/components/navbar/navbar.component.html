@@ -28,13 +28,13 @@
 
 <div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
  <span class="aboutMe">
-    <a href="#aboutme">{{ translation.getTranslation('aboutMe') }}</a>
+    <a href="#aboutme" (click)="closeMenu()">{{ translation.getTranslation('aboutMe') }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#myskills">{{ translation.getTranslation('mySkills') }}</a>
+    <a href="#myskills" (click)="closeMenu()">{{ translation.getTranslation('mySkills') }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#portfolio">{{ translation.getTranslation('portfolio') }}</a>
+    <a href="#portfolio" (click)="closeMenu()">{{ translation.getTranslation('portfolio') }}</a>
   </span>
 
   <div class="emailIconSection">
