@@ -23,6 +23,7 @@ import { TranslationService } from '../../../translation.service';
 export class PokedexComponent implements AfterViewInit {
   @Input() project!: Project;
   @ViewChild('textCtn') textCtnRef!: ElementRef;
+  @ViewChild('imgWrapper') imgWrapperRef!: ElementRef;
 
   private textShownOnce = false;
   private isBrowser: boolean;
@@ -34,30 +35,37 @@ export class PokedexComponent implements AfterViewInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
-  ngAfterViewInit(): void {
-    if (this.isBrowser) {
-      this.updateForceShow();
+ ngAfterViewInit(): void {
+    if (this.isBrowser && window.innerWidth <= 1265) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !this.textShownOnce) {
+            this.textCtnRef.nativeElement.classList.add('force-show');
+            this.imgWrapperRef.nativeElement.classList.add('force-color');
+            this.textShownOnce = true;
+            observer.disconnect(); 
+          }
+        });
+      }, {
+        threshold: 0.9,
+      });
+
+      observer.observe(this.textCtnRef.nativeElement);
     }
   }
 
-  showTextOnce() {
-    if (this.isBrowser && window.innerWidth <= 1265 && !this.textShownOnce) {
-      this.textCtnRef.nativeElement.classList.add('force-show');
-      this.textShownOnce = true;
-    }
-  }
-
-  @HostListener('window:resize')
+@HostListener('window:resize')
   onResize() {
     if (this.isBrowser) {
       this.updateForceShow();
     }
   }
 
-  private updateForceShow() {
-    if (this.isBrowser && window.innerWidth > 1265) {
-      this.textCtnRef.nativeElement.classList.remove('force-show');
-      this.textShownOnce = false;
-    }
+ private updateForceShow() {
+  if (this.isBrowser && window.innerWidth > 1265) {
+    this.textCtnRef.nativeElement.classList.remove('force-show');
+    this.imgWrapperRef.nativeElement.classList.remove('force-color'); // grayscale wieder aktiv
+    this.textShownOnce = false;
   }
+ }
 }

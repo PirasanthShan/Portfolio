@@ -1,6 +1,5 @@
-<div class="projectsCtn" (mouseenter)="showTextOnce()">
-
-  <div class="FieldText">
+<div class="projectsCtn">
+ <div class="FieldText">
     <p class="uphidden">{{ project.id }}</p>
     <div class="textCtn" #textCtn>
       <h1>{{ project.title }}</h1>
@@ -13,7 +12,7 @@
     </div>
   </div>
 
-  <div class="imgWrapper">
+  <div class="imgWrapper" #imgWrapper>
     <div class="frame">
       <img src="./assets/img/ArrowButton.webp" alt="Arrow" class="arrow-icon">
     </div>

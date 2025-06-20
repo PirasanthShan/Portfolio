@@ -49,7 +49,7 @@
     }
   }
 
-  // Hover-Effekte auf den gesamten Container legen
+  
   &:hover {
     .imgWrapper {
       img {
@@ -69,10 +69,25 @@
   }
 }
 
+
+.projectsCtn .imgWrapper.force-color img {
+  filter: none !important;
+}
+
+
+.projectsCtn .imgWrapper.force-color .frame {
+  opacity: 1 !important;
+}
+
+.projectsCtn .imgWrapper.force-color .arrow-icon {
+  opacity: 1 !important;
+  transform: rotate(270deg) !important;
+}
+
 .textCtn{
   opacity: 0;
   visibility: hidden;
-  transform: translateX(160px); // Startposition weiter links
+  transform: translateX(160px); 
   transition: transform 0.5s ease;
   pointer-events: none;
   width: 400px;
@@ -123,12 +138,12 @@
    
  }
 
- // Sichtbar machen beim Hover über projectsCtn
+ 
 .projectsCtn:hover .textCtn {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(0); // Zielposition
+  transform: translateX(0); 
 }
 
 .btnCtn{
@@ -144,9 +159,9 @@
   margin-top: 25px;
   width: 189px;
   height: 65.36px;
-  line-height: 65.36px; /* vertikal zentriert */
+  line-height: 65.36px; 
   text-align: center;
-  gap: 86px; /* kann ignoriert werden, weil `gap` nur bei flex/grid wirkt */
+  gap: 86px; 
   border: 4px solid #000000;
   background-color: #FFFCF3;
   font-family: Overpass, sans-serif;
@@ -292,7 +307,7 @@ img{
 
  .projectsCtn:hover .textCtn {
  
-  transform: translateX(0px); // Zielposition
+  transform: translateX(0px); 
 }
 }
   

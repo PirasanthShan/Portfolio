@@ -69,6 +69,21 @@
   }
 }
 
+
+.projectsCtn .imgWrapper.force-color img {
+  filter: none !important;
+}
+
+
+.projectsCtn .imgWrapper.force-color .frame {
+  opacity: 1 !important;
+}
+
+.projectsCtn .imgWrapper.force-color .arrow-icon {
+  opacity: 1 !important;
+  transform: rotate(10deg) !important;
+}
+
 .textCtn{
   opacity: 0;
   visibility: hidden;
