@@ -27,6 +27,8 @@ export class JoinComponent implements AfterViewInit {
 
   private textShownOnce = false;
   private isBrowser: boolean;
+  isMobile = false;
+
 
   constructor(
     public translation: TranslationService,
@@ -36,14 +38,17 @@ export class JoinComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (this.isBrowser && window.innerWidth <= 1265) {
+  if (this.isBrowser) {
+    this.isMobile = window.innerWidth <= 430;
+
+    if (window.innerWidth <= 1265) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting && !this.textShownOnce) {
             this.textCtnRef.nativeElement.classList.add('force-show');
             this.imgWrapperRef.nativeElement.classList.add('force-color');
             this.textShownOnce = true;
-            observer.disconnect(); 
+            observer.disconnect();
           }
         });
       }, {
@@ -53,13 +58,17 @@ export class JoinComponent implements AfterViewInit {
       observer.observe(this.textCtnRef.nativeElement);
     }
   }
+}
+
 
   @HostListener('window:resize')
-  onResize() {
-    if (this.isBrowser) {
-      this.updateForceShow();
-    }
+onResize() {
+  if (this.isBrowser) {
+    this.isMobile = window.innerWidth <= 430;
+    this.updateForceShow();
   }
+}
+
 
   private updateForceShow() {
     if (this.isBrowser && window.innerWidth > 1265) {

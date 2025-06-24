@@ -1,26 +1,31 @@
-<div class="projectsCtn" #container>
-   <p class="hidden">{{ project.id }}</p>
-  <div class="imgWrapper" #imgWrapper>
-    <div class="frame">
+<div class="projectsCtn">
+ <p class="hidden">{{ project.id }}</p>
+  
+ 
+ <div class="imgWrapper" #imgWrapper>
+    
+    <div class="frame" >
       <img src="./assets/img/ArrowButton.webp" alt="Arrow" class="arrow-icon">
-    </div>
-    <img
-      width="700"
-      height="400"
-      [src]="project.imgSrc"
-      [alt]="project.title">
+    
+     
+    </div> 
+       
+     <img class="project-img" [src]="project.imgSrc" 
+                               [alt]="project.title">
+      
   </div>
 
   <div>
-    <p class="uphidden">{{ project.id }}</p>
-    <div   #textCtn class="textCtn">
+     <p class="uphidden">{{ project.id }}</p>
+    <div class="textCtn" #textCtn>
       <h1>{{ project.title }}</h1>
       <h2>{{ project.technologies }}</h2>
       <h3>{{ project.description[translation.currentLanguage] }}</h3>
       <div class="btnCtn">
-        <a class="btn" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">Github</a>
-        <a class="btn" [href]="project.liveTestUrl" target="_blank" rel="noopener noreferrer">Live Test</a>
+         <a class="btn" href="https://github.com/PirasanthShan/LieferandoClon" target="_blank" rel="noopener noreferrer">Github</a>
+         <a class="btn" href="https://pirasanth-shanmuganathan.developerakademie.net/Lieferando/main.html" target="_blank" rel="noopener noreferrer">Live Test</a>
       </div>
     </div>
   </div>
+
 </div>

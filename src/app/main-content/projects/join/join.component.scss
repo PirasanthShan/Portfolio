@@ -1,30 +1,27 @@
 .projectsCtn {
-  height: 460px;
   display: flex;
   justify-content: center;
   text-align: start;
   gap: 150px;
   margin-top: 100px;
-
-  .imgWrapper {
+ .imgWrapper {
     position: relative;
-    width: 700px;
-    height: 400px;
-
-    img {
+    width: 100%;
+  img {
       object-fit: contain;
       width: 100%;
       height: 100%;
       filter: grayscale(100%);
       display: block;
       transition: filter 0.3s ease;
-    }
+      opacity: 1;
+      }
 
-    .frame {
-      position: absolute;
-      top: 40px;
+.frame {
+  position: absolute;
+      top: 35px;
       right: 10px;
-      bottom: 10px;
+      bottom: 50px;
       left: 20px;
       border: 4px solid #000000;
       opacity: 0;
@@ -32,28 +29,28 @@
       pointer-events: none;
       box-sizing: border-box;
       z-index: 2;
-
-      .arrow-icon {
-        position: absolute;
-        top: 120px;
-        right: -40px;
-        width: 70px;
-        height: 70px;
-        pointer-events: none;
-        transform: rotate(180deg) scale(0.43);
-        transform-origin: center center;
-        transition: transform 0.5s ease;
-        opacity: 0;
-        z-index: 4;
-      }
-    }
-  }
+.arrow-icon {
+    position: absolute;
+    top: 20%;
+    right: -5%;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    transform: rotate(180deg) scale(0.43);
+    transform-origin: center center;
+    transition: transform 0.5s ease;
+    opacity: 0;
+    z-index: 4;
+  } 
+ }
+}
 
   // Hover-Effekte auf den gesamten Container legen
   &:hover {
     .imgWrapper {
       img {
         filter: none;
+        
       }
 
       .frame {
@@ -69,12 +66,12 @@
   }
 }
 
-// ✅ Dauerhafte Entfärbung unter 1265px
+
 .projectsCtn .imgWrapper.force-color img {
   filter: none !important;
 }
 
-// ✅ Optional: Rahmen & Pfeil dauerhaft anzeigen
+
 .projectsCtn .imgWrapper.force-color .frame {
   opacity: 1 !important;
 }
@@ -84,12 +81,22 @@
   transform: rotate(10deg) !important;
 }
 
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+
 
 
 .textCtn{
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-160px); // Startposition weiter links
+  transform: translateX(-160px);
   transition: transform 0.5s ease;
   pointer-events: none;
   width: 400px;
@@ -145,12 +152,12 @@
    justify-content: end;
   }
 
- // Sichtbar machen beim Hover über projectsCtn
+ 
 .projectsCtn:hover .textCtn {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(0); // Zielposition
+  transform: translateX(0); 
 }
 
  span{
@@ -173,9 +180,9 @@
   margin-top: 25px;
   width: 189px;
   height: 65.36px;
-  line-height: 65.36px; /* vertikal zentriert */
+  line-height: 65.36px; 
   text-align: center;
-  gap: 86px; /* kann ignoriert werden, weil `gap` nur bei flex/grid wirkt */
+  gap: 86px; 
   border: 4px solid #000000;
   background-color: #FFFCF3;
   font-family: Overpass, sans-serif;
@@ -197,171 +204,199 @@
   background-color: #000000;
   color: white;
 }
-
-@media screen and (min-width: 1265px){
-  .hidden{
+// Desktop (ab 1265px)
+@media screen and (min-width: 1265px) {
+  .hidden {
     display: none;
   }
 }
 
-
-@media screen and (max-width: 1265px){
-  .uphidden{
+// Tablets und kleinere Desktops (bis 1265px)
+@media screen and (max-width: 1265px) {
+  .uphidden {
     display: none;
   }
 
-  .projectsCtn{
+  .projectsCtn {
     flex-direction: column;
     margin-top: 160px;
     gap: 20px;
   }
 
-  p{
+  p {
     margin-bottom: -10px;
   }
 
-  .textCtn{
+  .textCtn {
     margin-top: -70px;
   }
-}
 
+  .projectsCtn 
+  .imgWrapper 
+  .frame{
+    position: absolute;
+    top: -9px;
+    right: -1px;
+    bottom: 2px;
+    left: 5px;
+  }
+ }
 
-@media screen and (max-width: 780px){
-.projectsCtn {
-
+// Kleinere Tablets / größere Handys (bis 780px)
+@media screen and (max-width: 780px) {
+  .projectsCtn {
     margin-right: 45px;
     margin-left: 10px;
-    
-    
-  .imgWrapper{
-    width: 100%;
-  .frame{
-    top: 5px;
-    right: 1px;
-    bottom: 5px;
-    left: 6px;
 
-    .arrow-icon{
-    top: 70px;
-    right: -20px;
-    width: 40px;
+    .imgWrapper {
+      width: 100%;
+
+      .frame {
+        top: 5px;
+        right: 1px;
+        bottom: 5px;
+        left: 6px;
+
+        .arrow-icon {
+          top: 70px;
+          right: -20px;
+          width: 40px;
+        }
+      }
     }
-   }
   }
- }
 
-p{
-  font-size: 35px;
-}
+  p {
+    font-size: 35px;
+  }
 
-img{
-  height: auto;
-}
+  img {
+    height: auto;
+  }
 
-.textCtn{
-  margin-top: -100px;
-  h1{
-  font-size: 25px;
- }
- h2{
-  font-size: 15px;
- }
- h3{
-  font-size: 13px;
- }
-}
+  .textCtn {
+    margin-top: -100px;
 
-.btnCtn{
-  justify-content: flex-start;
-}
+    h1 {
+      font-size: 25px;
+    }
 
-.btn{
-  width: 150px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover{
+    h2 {
+      font-size: 15px;
+    }
+
+    h3 {
+      font-size: 13px;
+    }
+  }
+
+  .btnCtn {
+    justify-content: flex-start;
+  }
+
+  .btn {
     width: 150px;
-  }
- }
-}
-  
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-@media screen and (max-width: 600px){
+    &:hover {
+      width: 150px;
+    }
+  }
+}
+
+// Kleine Smartphones (bis 600px)
+@media screen and (max-width: 600px) {
   .projectsCtn {
     margin-top: 100px;
     align-items: center;
- }
+  }
 
- .textCtn{
-  width: 100%;
- }
-}
+  .imgWrapper {
+    width: 100%;
 
+    .frame {
+      inset: unset;
+      top: 15px;
+      right: 15px;
+      bottom: 15px;
+      left: 15px;
+      border-width: 2px;
 
-
-
-@media screen and (max-width: 436px){
-     .projectsCtn .imgWrapper {
-        width: 90%;
-    }
-
-    p{
-      font-size: 25px;
-      
-    }
-
-    .textCtn{
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 380px){
-     .projectsCtn {
-       margin-top: 60px;
-       margin-left: 0px;
-       margin-right: 0px;
-     .imgWrapper {
-        width: 80%;
-      .frame{
-         .arrow-icon{
-        top: 20px;
-        right: -15px;
-        width: 30px;
-    }
+      .arrow-icon {
+        width: 45px;
+        height: 45px;
+        top: 18%;
+        right: -5%;
       }
     }
-   }
-    
-   
-   p{
-      font-size: 25px;
-      
-    }
+  }
 
-    .textCtn{
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        text-align: center;
-        h3{
-         width: 250px;
-        }
-    }
-
-        .btn{
-        width: 100px;
-        height: 40px;
-        font-size: 18px;
+  .textCtn {
+    width: 100%;
+  }
 }
 
-     .arrow-icon{
-        top: 20px;
+// iPhone & kleine Smartphones (bis 430px)
+@media screen and (max-width: 430px) {
+  .projectsCtn {
+    margin-top: 80px;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
+  }
+
+  
+  .projectsCtn
+  .imgWrapper {
+    width: 100%;
+    max-width: 100%;
+
+    .frame {
+        top: 5px;
+        right: 17px;
+        bottom: 5px;
+        left: 6px;
+    }
+    
+
+    .arrow-icon {
+        top: 40px;
         right: -15px;
         width: 30px;
     }
+  }
 
+  p {
+    font-size: 25px;
+  }
+
+  .textCtn {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    h2 {
+      font-size: 14px;
+    }
+
+    h3 {
+      font-size: 12px;
+      width: 250px;
+    }
+  }
+
+  .btn {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
+
