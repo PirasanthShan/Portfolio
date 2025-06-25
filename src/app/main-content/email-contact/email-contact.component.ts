@@ -25,19 +25,18 @@ export class EmailContactComponent {
     message: ""
   }
 
-   mailTest = true
+   mailTest = false;
    checkboxAccepted = false;
    showPrivacyWarning = false;
 
   post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
-    body: (payload: any) => JSON.stringify(payload),
+    endPoint: 'https://pirasanth-shanmuganathan.de/sendMail.php',
+    body: (payload: any) => payload,
     options: {
       headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
-      },
-    },
+         'Content-Type': 'application/json'
+      }
+    }
   };
 
  onSubmit(ngForm: NgForm) {
