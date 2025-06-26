@@ -79,8 +79,8 @@ h1{
   overflow: visible; /* allow overlay to overflow */
   img{
    display: block;
-   max-width: 700px;
-   max-height: 700px;
+   width: 700px;
+   height: 700px;
    object-fit: cover;
   }
  }
@@ -154,6 +154,7 @@ button:active {
   .imgContainer{
     img {
     max-width: 450px;
+    max-height: 450px;
     
 }} 
 
