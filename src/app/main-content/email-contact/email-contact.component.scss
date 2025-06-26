@@ -33,11 +33,13 @@ $warn-red: rgba(230, 28, 64, 1);
 
 /* ---------- Basislayout ---------- */
 section {
-  background: linear-gradient($black);
+  background: linear-gradient(to bottom, rgb(20, 16, 12), rgb(0, 0, 0));
   width: 100%;
   min-height: 1061px;
   padding-top: 120px; // Abstand für „Say Hi“ sichtbar
-  clip-path: polygon(100% 15%, 100% 100%, 0 100%, 0 0);
+  clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+   -webkit-clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%); 
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -149,7 +151,7 @@ form {
   }
 }
 
-/* ---------- Buttons & Hinweise ---------- */
+
 .button {
   width: 269px;
   height: 68px;
@@ -199,7 +201,7 @@ span      { color: $orange; cursor: pointer; }
 .warnInput          { margin: -5px 0 0 20px; }
 .warnInputPrivacy   { margin: -25px 0 0 165px; }
 
-/* ---------- Pfeil nach oben ---------- */
+
 .pfeiToTop {
   position: absolute;
   right: 50px;
@@ -216,10 +218,11 @@ span      { color: $orange; cursor: pointer; }
   }
 }
 
-/* ---------- Media Queries ---------- */
+
 @media (max-width: 1000px) {
   section {
-    clip-path: polygon(100% 10%, 100% 100%, 0 100%, 0 15%);
+     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
   }
 
   .header {
@@ -228,6 +231,7 @@ span      { color: $orange; cursor: pointer; }
     h1 {
       font-size: 60px;
       margin-left: 0;
+      margin-top: 50px;
     }
   }
 
@@ -238,7 +242,8 @@ span      { color: $orange; cursor: pointer; }
 
 @media (max-width: 650px) {
   section {
-    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 5%);
+    clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
   }
 
   .floatingInput,
