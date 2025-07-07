@@ -9,9 +9,15 @@
   </div>
 
   <div class="inputCtn">
+
+    
+    <div class="successBanner" *ngIf="successMessageVisible">
+      {{ translation.getTranslation('emailSentSuccess') }}
+    </div>
+
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
 
-      <!-- Name Field -->
+      
       <div class="floatingInput">
         <input [(ngModel)]="contactData.name"
                id="name"

@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="logoCtn">
-    <a href="#landingpage">
+    <a [routerLink]="'/'">
       <img src="./assets/img/LogoName.webp" alt="">
     </a>
   </div>
@@ -22,24 +22,24 @@
       (click)="setLang('EN')"
     >EN</span>
   
-    <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
+    <img *ngIf="isMainPage" [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
   </div>
 </div>
 
-<div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
- <span class="aboutMe">
-    <a href="#aboutme" (click)="closeMenu()">{{ translation.getTranslation('aboutMe') }}</a>
+<div *ngIf="isMainPage" class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
+  <span class="aboutMe">
+    <a href="#aboutme" (click)="closeMenu()">{{ 'aboutMe' | translate }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#myskills" (click)="closeMenu()">{{ translation.getTranslation('mySkills') }}</a>
+    <a href="#myskills" (click)="closeMenu()">{{ 'mySkills' | translate }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#portfolio" (click)="closeMenu()">{{ translation.getTranslation('portfolio') }}</a>
+    <a href="#portfolio" (click)="closeMenu()">{{ 'portfolio' | translate }}</a>
   </span>
 
   <div class="emailIconSection">
     <div class="emailCtn"> 
-      <span>{{ translation.getTranslation('sayHi') }}</span>
+      <span>{{ 'sayHi' | translate }}</span>
       <p class="email">pirasanth&#64;live.de</p>
     </div>
     

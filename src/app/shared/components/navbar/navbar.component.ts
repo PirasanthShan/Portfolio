@@ -1,15 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { TranslatePipe } from '../../translate.pipe';
+import { RouterModule } from '@angular/router';
 import { TranslationService } from '../../../translation.service';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   burgerFrames = [
     './assets/img/BurgerMenu1.webp',
     './assets/img/BurgerMenu2.webp',
@@ -19,65 +23,72 @@ export class NavbarComponent {
 
   startFrame = './assets/img/BurgerMenu.webp';
   currentFrame = this.startFrame;
-  public intervalId: any;
+  intervalId: any = null;
+  isMainPage = false;
   isOpen = false;
-  selectedLang: string | null = null;
-  borderState: 'black' | 'green' | null = null;
   showBackground = false;
+  selectedLang: 'EN' | 'DE' | null = null;
+  borderState: 'black' | 'green' | null = null;
 
-  constructor(public translation: TranslationService) {}
+  constructor(public translation: TranslationService, private router: Router) {}
 
-  toggleMenuIcon() {
+  ngOnInit(): void {
+    this.translation.language$.subscribe(lang => {
+    this.selectedLang = lang;
+    this.borderState = 'green';
+  });
+
+  this.router.events
+  .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+  .subscribe(event => {
+    this.isMainPage = event.urlAfterRedirects === '/';
+  });
+
+  }
+
+
+  toggleMenuIcon(): void {
     if (this.intervalId) clearInterval(this.intervalId);
 
-    const frames = this.burgerFrames;
     const direction = this.isOpen ? -1 : 1;
-    let i = this.isOpen ? frames.length - 1 : 0;
+    let i = this.isOpen ? this.burgerFrames.length - 1 : 0;
 
     this.isOpen = !this.isOpen;
 
     if (this.isOpen) {
-      setTimeout(() => {
-        this.showBackground = true;
-      }, 10);
+      setTimeout(() => this.showBackground = true, 10);
     } else {
       this.showBackground = false;
     }
 
     this.intervalId = setInterval(() => {
-      if (i >= 0 && i < frames.length) {
-        this.currentFrame = frames[i];
+      if (i >= 0 && i < this.burgerFrames.length) {
+        this.currentFrame = this.burgerFrames[i];
         i += direction;
       } else {
         clearInterval(this.intervalId);
-        this.currentFrame = this.isOpen ? frames[frames.length - 1] : this.startFrame;
+        this.currentFrame = this.isOpen
+          ? this.burgerFrames[this.burgerFrames.length - 1]
+          : this.startFrame;
       }
     }, 50);
   }
 
-  setLang(lang: string): void {
-  if (lang !== 'EN' && lang !== 'DE') return;
+  setLang(lang: 'EN' | 'DE'): void {
+    if (lang !== 'EN' && lang !== 'DE') return;
 
-  this.translation.setLang(lang); 
-  this.selectedLang = lang;
-  this.borderState = 'black';
+    this.translation.setLang(lang); // Speichert in localStorage
+    this.selectedLang = lang;
 
-  setTimeout(() => {
-    this.borderState = 'green';
-  }, 100);
-}
-
-ngOnInit(): void {
-    this.selectedLang = this.translation.currentLanguage;
-    this.borderState = 'green'; 
+    this.borderState = 'black';
+    setTimeout(() => this.borderState = 'green', 100);
   }
 
-closeMenu(): void {
-  this.isOpen = false;
-  this.currentFrame = this.startFrame;
-  this.showBackground = false;
-  if (this.intervalId) clearInterval(this.intervalId);
-}
+  closeMenu(): void {
+    this.isOpen = false;
+    this.currentFrame = this.startFrame;
+    this.showBackground = false;
 
-
+    if (this.intervalId) clearInterval(this.intervalId);
+  }
 }

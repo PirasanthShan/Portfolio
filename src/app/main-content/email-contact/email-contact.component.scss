@@ -33,7 +33,7 @@ $warn-red: rgba(230, 28, 64, 1);
 
 /* ---------- Basislayout ---------- */
 section {
-  background: linear-gradient(to bottom, rgb(20, 16, 12), rgb(0, 0, 0));
+  background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0));
   width: 100%;
   min-height: 1061px;
   padding-top: 120px; // Abstand für „Say Hi“ sichtbar
@@ -199,7 +199,7 @@ span      { color: $orange; cursor: pointer; }
 }
 
 .warnInput          { margin: -5px 0 0 20px; }
-.warnInputPrivacy   { margin: -25px 0 0 165px; }
+.warnInputPrivacy   { margin: -25px 0 0 0px; }
 
 
 .pfeiToTop {
@@ -217,6 +217,43 @@ span      { color: $orange; cursor: pointer; }
     &:hover { height: 100px; }
   }
 }
+
+.successBanner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #00c853;
+  color: white;
+  padding: 18px 36px;
+  border-radius: 10px;
+  font-family: 'Overpass';
+  font-size: 18px;
+  z-index: 1000;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  animation: slideFade 3s ease-in-out forwards;
+  text-align: center;
+}
+
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+}
+
 
 
 @media (max-width: 1000px) {

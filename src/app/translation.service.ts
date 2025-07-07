@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
 
 export type TranslationKey =
   | 'landingTitle'
@@ -42,7 +44,6 @@ export type TranslationKey =
   | 'legalCopyrightContent2'
   | 'legalOnRequest'
   | 'legalGermany'
-  // Privacy Policy Keys
   | 'privacyResponsible'
   | 'privacyWebsite'
   | 'privacyGeneralTitle'
@@ -59,7 +60,8 @@ export type TranslationKey =
   | 'privacyRights3'
   | 'privacyRights4'
   | 'privacyContactTitle'
-  | 'privacyContactText';
+  | 'privacyContactText'
+  | 'emailSentSuccess';
 
 type TranslationMap = Record<TranslationKey, string>;
 
@@ -68,6 +70,21 @@ type TranslationMap = Record<TranslationKey, string>;
 })
 export class TranslationService {
   private currentLang: 'EN' | 'DE' = 'EN';
+  public language$ = new BehaviorSubject<'EN' | 'DE' | null>(null);
+
+
+
+  constructor() {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const savedLang = localStorage.getItem('selectedLanguage');
+    if (savedLang === 'EN' || savedLang === 'DE') {
+      this.currentLang = savedLang;
+      this.language$.next(this.currentLang); 
+    }
+  }
+}
+
+
 
   private translations: Record<'EN' | 'DE', TranslationMap> = {
     EN: {
@@ -112,7 +129,6 @@ export class TranslationService {
       legalCopyrightContent2: `Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is identified as such. Should you nevertheless become aware of a copyright infringement, please inform me accordingly. Upon notification of violations, I will remove such content immediately.`,
       legalOnRequest: 'available on request',
       legalGermany: 'Germany',
-      // Privacy Policy Translations
       privacyResponsible: 'Responsible for this website:',
       privacyWebsite: 'Website:',
       privacyGeneralTitle: 'General Information',
@@ -129,7 +145,8 @@ export class TranslationService {
       privacyRights3: 'Deletion of your data, unless there is a legal retention obligation',
       privacyRights4: 'Revocation of consent to processing',
       privacyContactTitle: 'Contact',
-      privacyContactText: 'If you have questions about data protection, please contact us at the above address or by email.'
+      privacyContactText: 'If you have questions about data protection, please contact us at the above address or by email.',
+      emailSentSuccess: 'Message sent successfully!',
     },
     DE: {
       landingTitle: 'Frontend Entwickler',
@@ -173,7 +190,6 @@ export class TranslationService {
       legalCopyrightContent2: 'Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.',
       legalOnRequest: 'wird auf Anfrage bereitgestellt',
       legalGermany: 'Deutschland',
-      // Datenschutzerklärung Übersetzungen
       privacyResponsible: 'Verantwortlich für diese Website:',
       privacyWebsite: 'Website:',
       privacyGeneralTitle: 'Allgemeine Hinweise',
@@ -190,13 +206,32 @@ export class TranslationService {
       privacyRights3: 'Löschung Ihrer Daten, sofern keine gesetzliche Aufbewahrungspflicht besteht',
       privacyRights4: 'Widerruf der Einwilligung zur Verarbeitung',
       privacyContactTitle: 'Kontakt',
-      privacyContactText: 'Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte unter der oben genannten Adresse oder per E-Mail.'
+      privacyContactText: 'Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte unter der oben genannten Adresse oder per E-Mail.',
+      emailSentSuccess: 'Nachricht erfolgreich gesendet!',
+
     }
   };
 
-  setLang(lang: 'EN' | 'DE') {
-    this.currentLang = lang;
-  }
+  setLang(lang: 'EN' | 'DE'): void {
+  this.currentLang = lang;
+  localStorage.setItem('selectedLanguage', lang);
+  this.language$.next(lang); 
+ }
+
+    init(): Promise<void> {
+      return new Promise(resolve => {
+        if (typeof window !== 'undefined' && window.localStorage) {
+          const savedLang = localStorage.getItem('selectedLanguage');
+          if (savedLang === 'EN' || savedLang === 'DE') {
+            this.currentLang = savedLang;
+            this.language$.next(savedLang);
+          }
+        }
+        resolve();
+      });
+    }
+
+
 
   getTranslation(key: TranslationKey): string {
     return this.translations[this.currentLang][key];

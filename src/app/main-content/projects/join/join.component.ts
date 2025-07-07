@@ -60,14 +60,13 @@ export class JoinComponent implements AfterViewInit {
   }
 }
 
-
-  @HostListener('window:resize')
-onResize() {
+@HostListener('window:resize')
+  onResize() {
   if (this.isBrowser) {
     this.isMobile = window.innerWidth <= 430;
     this.updateForceShow();
-  }
-}
+   }
+ }
 
 
   private updateForceShow() {
