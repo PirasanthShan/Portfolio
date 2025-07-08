@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TranslatePipe } from '../../translate.pipe';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TranslationService } from '../../../translation.service';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +11,7 @@ import { filter } from 'rxjs/operators';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
+
 export class NavbarComponent implements OnInit {
   burgerFrames = [
     './assets/img/BurgerMenu1.webp',
@@ -24,7 +23,7 @@ export class NavbarComponent implements OnInit {
   startFrame = './assets/img/BurgerMenu.webp';
   currentFrame = this.startFrame;
   intervalId: any = null;
-  isMainPage = false;
+
   isOpen = false;
   showBackground = false;
   selectedLang: 'EN' | 'DE' | null = null;
@@ -33,18 +32,33 @@ export class NavbarComponent implements OnInit {
   constructor(public translation: TranslationService, private router: Router) {}
 
   ngOnInit(): void {
-    this.translation.language$.subscribe(lang => {
+  this.translation.language$.subscribe(lang => {
     this.selectedLang = lang;
     this.borderState = 'green';
-  });
-
-  this.router.events
-  .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-  .subscribe(event => {
-    this.isMainPage = event.urlAfterRedirects === '/';
-  });
-
+   });
   }
+
+   goToSection(fragment: string) {
+  if (this.router.url !== '/') {
+    this.router.navigateByUrl('/').then(() => {
+      this.scrollTo(fragment);
+    });
+   } else {
+    this.scrollTo(fragment); // ← Hier fehlt es bei dir
+   }
+
+    this.closeMenu(); // Menü immer schließen
+  }
+
+ private scrollTo(fragment: string) {
+  setTimeout(() => {
+    const el = document.getElementById(fragment);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 50);
+ }
+
 
 
   toggleMenuIcon(): void {

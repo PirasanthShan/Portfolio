@@ -22,19 +22,19 @@
       (click)="setLang('EN')"
     >EN</span>
   
-    <img *ngIf="isMainPage" [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
+    <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
   </div>
 </div>
 
-<div *ngIf="isMainPage" class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
+<div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
   <span class="aboutMe">
-    <a href="#aboutme" (click)="closeMenu()">{{ 'aboutMe' | translate }}</a>
+    <a href="#aboutme"  (click)="goToSection('aboutme')">{{ 'aboutMe' | translate }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#myskills" (click)="closeMenu()">{{ 'mySkills' | translate }}</a>
+    <a href="#myskills" (click)="goToSection('myskills')">{{ 'mySkills' | translate }}</a>
   </span>
   <span class="aboutMe">
-    <a href="#portfolio" (click)="closeMenu()">{{ 'portfolio' | translate }}</a>
+    <a href="#portfolio" (click)="goToSection('portfolio')">{{ 'portfolio' | translate }}</a>
   </span>
 
   <div class="emailIconSection">
