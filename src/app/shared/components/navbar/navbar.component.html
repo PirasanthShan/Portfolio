@@ -1,52 +1,60 @@
 <div class="navbar">
-  <div class="logoCtn">
-    <a [routerLink]="'/'">
-      <img src="./assets/img/LogoName.webp" alt="">
-    </a>
-  </div>
+  
+<div class="underElementNav">
 
-  <div class="translateMenu">
-    <span 
-      [ngClass]="{
-        'black-border': selectedLang === 'DE' && borderState === 'black',
-        'green-border': selectedLang === 'DE' && borderState === 'green'
-      }"
-      (click)="setLang('DE')"
-    >DE</span>
-  
-    <span 
-      [ngClass]="{
-        'black-border': selectedLang === 'EN' && borderState === 'black',
-        'green-border': selectedLang === 'EN' && borderState === 'green'
-      }"
-      (click)="setLang('EN')"
-    >EN</span>
-  
-    <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
-  </div>
+        <div class="logoCtn">
+          <a [routerLink]="'/'">
+            <img src="./assets/img/LogoName.webp" alt="">
+          </a>
+        </div>
+
+        <div class="translateMenu">
+          <span 
+            [ngClass]="{
+              'black-border': selectedLang === 'DE' && borderState === 'black',
+              'green-border': selectedLang === 'DE' && borderState === 'green'
+            }"
+            (click)="setLang('DE')"
+          >DE</span>
+        
+          <span 
+            [ngClass]="{
+              'black-border': selectedLang === 'EN' && borderState === 'black',
+              'green-border': selectedLang === 'EN' && borderState === 'green'
+            }"
+            (click)="setLang('EN')"
+          >EN</span>
+        
+          <img [src]="currentFrame" alt="Burger Menü" (click)="toggleMenuIcon()">
+        </div>
+      </div>
+
+      <div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
+        <span class="aboutMe">
+          <a href="#aboutme"  (click)="goToSection('aboutme')">{{ 'aboutMe' | translate }}</a>
+        </span>
+        <span class="aboutMe">
+          <a href="#myskills" (click)="goToSection('myskills')">{{ 'mySkills' | translate }}</a>
+        </span>
+        <span class="aboutMe">
+          <a href="#portfolio" (click)="goToSection('portfolio')">{{ 'portfolio' | translate }}</a>
+        </span>
+
+        <div class="emailIconSection">
+          <div class="emailCtn"> 
+            <span>{{ 'sayHi' | translate }}</span>
+            <p class="email">pirasanth&#64;live.de</p>
+          </div>
+          
+          <div class="imgCtn">
+            <img class="imgGitHub" src="./assets/img/Github.webp" alt="GitHub">
+            <img class="imgEmail" src="./assets/img/Email.webp" alt="Email">
+            <img class="inImg" src="./assets/img/in.webp" alt="LinkedIn">
+          </div>
+        </div>
+
 </div>
 
-<div class="dropDownMenu" #dropDownMenu [class.open]="isOpen">
-  <span class="aboutMe">
-    <a href="#aboutme"  (click)="goToSection('aboutme')">{{ 'aboutMe' | translate }}</a>
-  </span>
-  <span class="aboutMe">
-    <a href="#myskills" (click)="goToSection('myskills')">{{ 'mySkills' | translate }}</a>
-  </span>
-  <span class="aboutMe">
-    <a href="#portfolio" (click)="goToSection('portfolio')">{{ 'portfolio' | translate }}</a>
-  </span>
-
-  <div class="emailIconSection">
-    <div class="emailCtn"> 
-      <span>{{ 'sayHi' | translate }}</span>
-      <p class="email">pirasanth&#64;live.de</p>
-    </div>
-    
-    <div class="imgCtn">
-      <img class="imgGitHub" src="./assets/img/Github.webp" alt="GitHub">
-      <img class="imgEmail" src="./assets/img/Email.webp" alt="Email">
-      <img class="inImg" src="./assets/img/in.webp" alt="LinkedIn">
-    </div>
-  </div>
 </div>
+
+

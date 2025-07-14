@@ -42,12 +42,18 @@
   top: 0;
   z-index: 3;
   @include background(#FFFCF3);
-  @include display(flex, space-between, center);
+  @include display(flex, center, center);
   @include sizing(100%, 92px);
 }
 
+.underElementNav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+}
+
 .logoCtn {
-  margin-left: 150px;
   img {
     @include sizing(80px, 66px);
     cursor: pointer;
@@ -55,10 +61,10 @@
 }
 
 .translateMenu {
-  margin-right: 150px;
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-right: 20px;
 
   span {
     @include font(Syne, 700, 25px);
