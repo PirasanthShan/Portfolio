@@ -26,16 +26,15 @@ export class EmailContactComponent {
   mailTest = false;
   checkboxAccepted = false;
   showPrivacyWarning = false;
-
-  // ✅ Erfolgsmeldung sichtbar?
   successMessageVisible = false;
+  formTriedToSubmit = false;
 
-  // ✅ Anzeige der Erfolgsmeldung für kurze Zeit
+
   showSuccessMessage() {
     this.successMessageVisible = true;
     setTimeout(() => {
       this.successMessageVisible = false;
-    }, 3000); // 3 Sekunden sichtbar
+    }, 3000); 
   }
 
   post = {
@@ -48,34 +47,38 @@ export class EmailContactComponent {
     }
   };
 
+  isInputsValid(form: NgForm): boolean {
+  return !!form?.valid && this.isMessageValid();
+ }
+
+
   onSubmit(ngForm: NgForm) {
+  this.formTriedToSubmit = true;
+  if (!this.isFormReady(ngForm)) {
+    Object.values(ngForm.controls).forEach(control => control.markAsTouched());
     if (!this.checkboxAccepted) {
       this.showPrivacyWarning = true;
     }
 
-    Object.values(ngForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
-
-    if (ngForm.invalid || !this.isMessageValid() || !this.checkboxAccepted) {
-      return;
-    }
-
-    if (!this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: () => {
-            this.resetForm(ngForm);
-            this.showSuccessMessage(); // ✅ Erfolgsanzeige
-          },
-          error: (error) => console.error(error),
-          complete: () => console.info('send post complete'),
-        });
-    } else {
-      this.resetForm(ngForm);
-      this.showSuccessMessage(); // Testmodus ebenfalls
-    }
+    return;
   }
+
+  if (!this.mailTest) {
+    this.http.post(this.post.endPoint, this.post.body(this.contactData))
+      .subscribe({
+        next: () => {
+          this.resetForm(ngForm);
+          this.showSuccessMessage();
+        },
+        error: (error) => console.error(error),
+        complete: () => console.info('send post complete'),
+      });
+  } else {
+    this.resetForm(ngForm);
+    this.showSuccessMessage();
+  }
+}
+
 
   resetForm(form: NgForm) {
     form.resetForm();

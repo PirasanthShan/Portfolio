@@ -35,7 +35,6 @@
         {{ translation.getTranslation('nameRequired') }}
       </span>
 
-      <!-- Email Field -->
       <div class="floatingInput">
         <input [(ngModel)]="contactData.email"
                id="email"
@@ -55,8 +54,7 @@
         {{ translation.getTranslation('emailRequired') }}
       </span>
 
-      <!-- Message Field -->
-      <div class="floatingTextarea">
+     <div class="floatingTextarea">
         <textarea [(ngModel)]="contactData.message"
                   id="message"
                   name="message"
@@ -73,7 +71,6 @@
         {{ translation.getTranslation('messageRequired') }}
       </span>
 
-      <!-- Checkbox -->
       <div class="checkCtn">
         <img (click)="toggleCheckbox()"
              [src]="currentImage"
@@ -101,9 +98,9 @@
         {{ translation.getTranslation('privacyRequired') }}
       </span>
 
-      <!-- Submit Button -->
-      <input
+    <input
         type="submit"
+        [disabled]="!isInputsValid(contactForm)"
         [value]="translation.getTranslation('sendMessage')"
         class="button"
         [class.active]="isFormReady(contactForm)" />
