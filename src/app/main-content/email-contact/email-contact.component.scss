@@ -35,7 +35,7 @@ $warn-red: rgba(230, 28, 64, 1);
 section {
   background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0));
   width: 100%;
-  min-height: 1061px;
+  min-height: 800px;
   padding-top: 120px; // Abstand für „Say Hi“ sichtbar
   clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%);
    -webkit-clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%); 
@@ -50,9 +50,7 @@ section {
   color: $orange;
   font-weight: normal;
   text-decoration: none !important; // <- ganz wichtig
-
   transition: color 0.2s ease, border-color 0.2s ease;
-
   &:hover {
     text-decoration: none !important; // <- auch beim Hover verhindern
     border-bottom: none;              // <- optional, falls du es vorher hattest
@@ -268,8 +266,7 @@ span      { color: $orange; cursor: pointer; }
     h1 {
       font-size: 60px;
       margin-left: 0;
-      margin-top: 50px;
-    }
+      }
   }
 
   .pfeiToTop {
