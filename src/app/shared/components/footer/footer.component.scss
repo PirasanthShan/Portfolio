@@ -2,9 +2,9 @@ section{
 background-color: rgb(0, 0, 0, 1);
 width:100%;
 margin-top: -1px;
-height: 120px;
+height: 100px;
 display: flex;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
 }
 
@@ -31,7 +31,6 @@ span{
 
   }
 }
-
 
 .rightFooter{
   display: flex;
@@ -98,6 +97,13 @@ span{
   }
 }
 
+.Footer{
+  display: flex;
+  width: 1440px;
+  justify-content: space-between;
+  background-color: black;
+}
+
 
 @media screen and (max-width: 700px){
   section{
@@ -121,5 +127,11 @@ span{
 
   .legalCtn{
     justify-content: center;
+  }
+
+  .Footer{
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
   }
 }

@@ -30,10 +30,11 @@
           <img src="assets/img/right.webp" alt="✓" *ngIf="name.valid && name.touched">
         </div>
         <label for="name">{{ translation.getTranslation('yourName') }}</label>
-      </div>
-      <span *ngIf="name.invalid && name.touched" class="warnInput">
+         <span *ngIf="name.invalid && name.touched" class="warnInput">
         {{ translation.getTranslation('nameRequired') }}
       </span>
+      </div>
+     
 
       <div class="floatingInput">
         <input [(ngModel)]="contactData.email"
@@ -49,10 +50,11 @@
           <img src="./assets/img/right.webp" alt="✓" *ngIf="email.valid && email.touched">
         </div>
         <label for="email">{{ translation.getTranslation('yourEmail') }}</label>
-      </div>
-      <span *ngIf="email.invalid && email.touched" class="warnInput">
+        <span *ngIf="email.invalid && email.touched" class="warnInput">
         {{ translation.getTranslation('emailRequired') }}
-      </span>
+        </span>
+      </div>
+     
 
      <div class="floatingTextarea">
         <textarea [(ngModel)]="contactData.message"
@@ -66,10 +68,11 @@
           <img src="assets/img/right.webp" alt="✓" *ngIf="isMessageValid() && message.touched">
         </div>
         <label for="message">{{ translation.getTranslation('yourMessage') }}</label>
-      </div>
-      <span *ngIf="!isMessageValid() && message.touched" class="warnInput">
+        <span *ngIf="!isMessageValid() && message.touched" class="warnInput">
         {{ translation.getTranslation('messageRequired') }}
-      </span>
+        </span>
+      </div>
+      
 
       <div class="checkCtn">
         <img (click)="toggleCheckbox()"

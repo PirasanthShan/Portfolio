@@ -62,15 +62,16 @@ section {
 .header {
   width: 100%;
   display: flex;
+  justify-content: center;
 
   h1 {
-    margin: 0 0 0 200px;
+    margin: 0 0 0 0px;
     font: 800 78px/1 Syne;
     letter-spacing: 1%;
     text-align: center;
     color: $white;
     transition: color 0.1s ease-in;
-
+    padding-right: 750px;
     &:hover { color: $orange; }
   }
 }
@@ -107,6 +108,7 @@ form {
 .floatingTextarea {
   position: relative;
   width: 617px;
+  height: 60px;
 
   .input       { @extend %floating-field; height: 50px; }
   textarea     { @extend %floating-field; height: 202px; padding-top: 5px; resize: none; }
@@ -178,6 +180,7 @@ form {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-top: 160px;
 
   img {
     width: 24px;
@@ -252,8 +255,6 @@ span      { color: $orange; cursor: pointer; }
   }
 }
 
-
-
 @media (max-width: 1000px) {
   section {
      clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
@@ -266,6 +267,7 @@ span      { color: $orange; cursor: pointer; }
     h1 {
       font-size: 60px;
       margin-left: 0;
+      padding-right: 0px;
       }
   }
 
