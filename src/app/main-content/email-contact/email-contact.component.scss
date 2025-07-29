@@ -60,9 +60,9 @@ section {
 
 
 .header {
-  width: 100%;
+  width: 1390px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 
   h1 {
     margin: 0 0 0 0px;
@@ -71,7 +71,6 @@ section {
     text-align: center;
     color: $white;
     transition: color 0.1s ease-in;
-    padding-right: 750px;
     &:hover { color: $orange; }
   }
 }
@@ -205,11 +204,12 @@ span      { color: $orange; cursor: pointer; }
 
 .pfeiToTop {
   position: absolute;
-  right: 50px;
-  bottom: 95px;
+  bottom: 30px;
   cursor: pointer;
   z-index: 10;
-
+  display: flex;
+  width: 1370px;
+  justify-content: flex-end;
   img {
     width: 40px;
     height: 80px;
@@ -255,12 +255,8 @@ span      { color: $orange; cursor: pointer; }
   }
 }
 
-@media (max-width: 1000px) {
-  section {
-     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
-    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
-  }
-
+@media (max-width: 1395px){
+  
   .header {
     justify-content: center;
 
@@ -271,8 +267,17 @@ span      { color: $orange; cursor: pointer; }
       }
   }
 
-  .pfeiToTop {
+   .pfeiToTop {
     display: none;
+  }
+}
+
+
+
+@media (max-width: 1000px) {
+  section {
+     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
   }
 }
 
@@ -289,5 +294,16 @@ span      { color: $orange; cursor: pointer; }
 
   .checkCtn {
     padding: 20px;
+  }
+}
+
+
+@media (max-width: 500px){
+  .header {
+   h1 {
+      font-size: 50px;
+      margin-left: 0;
+      padding-right: 0px;
+      }
   }
 }

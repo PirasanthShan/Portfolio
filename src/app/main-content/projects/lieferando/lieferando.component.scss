@@ -4,6 +4,7 @@
   text-align: start;
   gap: 150px;
   margin-top: 100px;
+  width: 1390px;
  .imgWrapper {
     position: relative;
     width: 100%;
@@ -195,15 +196,15 @@
   background-color: #000000;
   color: white;
 }
-// Desktop (ab 1265px)
-@media screen and (min-width: 1265px) {
+
+@media screen and (min-width: 1440px) {
   .hidden {
     display: none;
   }
 }
 
-// Tablets und kleinere Desktops (bis 1265px)
-@media screen and (max-width: 1265px) {
+
+@media screen and (max-width: 1440px) {
   .uphidden {
     display: none;
   }
@@ -222,7 +223,9 @@
     margin-top: -70px;
   }
 
-  .projectsCtn 
+  .projectsCtn{
+    width: auto;
+  } 
   .imgWrapper 
   .frame{
     position: absolute;

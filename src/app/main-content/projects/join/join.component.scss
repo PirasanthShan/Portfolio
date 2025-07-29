@@ -4,6 +4,7 @@
   text-align: start;
   gap: 150px;
   margin-top: 100px;
+  width: 1390px;
  .imgWrapper {
     position: relative;
     width: 100%;
@@ -79,15 +80,6 @@
 .projectsCtn .imgWrapper.force-color .arrow-icon {
   opacity: 1 !important;
   transform: rotate(10deg) !important;
-}
-
-.project-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
 }
 
 
@@ -204,15 +196,15 @@
   background-color: #000000;
   color: white;
 }
-// Desktop (ab 1265px)
-@media screen and (min-width: 1265px) {
+
+@media screen and (min-width: 1440px) {
   .hidden {
     display: none;
   }
 }
 
-// Tablets und kleinere Desktops (bis 1265px)
-@media screen and (max-width: 1265px) {
+
+@media screen and (max-width: 1440px) {
   .uphidden {
     display: none;
   }
@@ -231,7 +223,9 @@
     margin-top: -70px;
   }
 
-  .projectsCtn 
+  .projectsCtn{
+    width: auto;
+  } 
   .imgWrapper 
   .frame{
     position: absolute;
@@ -239,7 +233,7 @@
     right: -1px;
     bottom: 2px;
     left: 5px;
-  }
+   }
  }
 
 // Kleinere Tablets / größere Handys (bis 780px)

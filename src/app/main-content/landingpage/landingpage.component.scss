@@ -55,10 +55,9 @@
     }
 
 .emailCtn{
-  position: absolute;
-  top: 765px;
-  left: 20%;
-  transform: rotate(270deg);
+   width: auto;
+   rotate: 270deg;
+   padding-top: 50px;
   a{
     font-family: 'Overpass';
     font-weight: 300;
@@ -73,7 +72,7 @@
 .scrollDownCtn{
   width: 116px;
     height: 230px;
-    position: absolute;
+    
     top: 641px;
     right: 20%;
     display: flex;
@@ -105,6 +104,14 @@
   }
 }
 
+.emailArrowCtn{
+   width: 1440px;
+   display: flex;
+   justify-content: space-between;
+   position: absolute;
+   top: 600px;
+}
+
 @keyframes scrollDown {
   0% {
     transform: translateY(-100%);
@@ -113,6 +120,16 @@
     transform: translateY(180px); // exakt Höhe deines Containers
   }
 }
+
+
+
+@media screen and (max-width: 1455px) {
+ .emailArrowCtn{
+  width: 1000px;
+ }
+}
+
+
 
 @media screen and (max-width: 1082px) {
   .frontEnd {
@@ -142,6 +159,19 @@
     left: -50px;
    }
 
+    .emailArrowCtn{
+     top: 500px;
+   }
+
+}
+
+
+@media screen and (max-width: 1013px) {
+   .emailArrowCtn{
+    width: 700px;
+    
+   }
+
 }
 
 
@@ -161,11 +191,15 @@
     min-height: 0px;
    }
 
+.emailArrowCtn{
+   top: 400px;
+   }
+
 
 }
 
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 715px){
 .frontEnd{
   >h1{
     font-size: 50px;
@@ -206,19 +240,23 @@
       width: min-content;
     }
   }
-
+  
+  .emailArrowCtn{
+    width: 500px;
+    top: 250px;
   .emailCtn {
     top: 400px;
     left: -50px;
     a{
      font-size: 15px;
+    }
    }
-   }
+  }
    
 }
 
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 515px){
 .frontEnd{
   >h1{
     font-size: 35px;
@@ -246,6 +284,20 @@
         top: 180px;
 
 }
+
+    .emailArrowCtn {
+        width: 390px;
+        top: 200px;
+    }
+
+}
+
+
+@media screen and (max-width: 400px){
+    .emailArrowCtn {
+        width: 290px;
+       
+     }
 
 }
 

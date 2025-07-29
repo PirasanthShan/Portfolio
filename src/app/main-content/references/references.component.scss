@@ -39,6 +39,7 @@ section{
    display: flex;
    gap: 20px;
    margin-top: 25px;
+   width: 1390px;
  }
 
  .referenceBox{
@@ -109,11 +110,13 @@ section{
     display: flex;
     gap: 20px;
     margin-top: 25px;
+    justify-content: center;
     }
 
     .referenceBox{
-      width: 300px;
+      width: 410px;
       height: 300px;
+      
      h4  {
      font-size: 15px;
      }
@@ -126,6 +129,7 @@ section{
     display: flex;
     gap: 20px;
     margin-top: 25px;
+    align-items: center;
     }
 
     .referenceBox{
@@ -139,9 +143,10 @@ section{
  }
 
  
- @media screen and (max-width: 1079px) {
+ @media screen and (max-width: 1400px) {
     .referencesContainer{
       flex-direction: column;
+      align-items: center;
     }
 
  }
