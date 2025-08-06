@@ -54,7 +54,6 @@ export class JoinComponent implements AfterViewInit {
       }, {
         threshold: 0.9,
       });
-
       observer.observe(this.imgWrapperRef.nativeElement);
     }
   }

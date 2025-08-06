@@ -3,17 +3,13 @@ body,html{
   margin: 0px;
   cursor: default;
   scroll-behavior: smooth;
-  min-width: 100vw;
-  overflow-x: hidden;
-}
+  }
 
 h1[id] {
-  scroll-margin-top: 200px; // <- Exakt so hoch wie dein Navbar!
+  scroll-margin-top: 200px; 
 }
 
 
-
-//Fonts//
 @font-face {
   font-family: 'Overpass';
   src: url('/assets/fonts/Overpass_Regular.ttf') format('truetype');

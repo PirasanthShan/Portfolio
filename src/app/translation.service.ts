@@ -74,15 +74,15 @@ export class TranslationService {
 
 
 
-  constructor() {
+constructor() {
   if (typeof window !== 'undefined' && window.localStorage) {
     const savedLang = localStorage.getItem('selectedLanguage');
     if (savedLang === 'EN' || savedLang === 'DE') {
       this.currentLang = savedLang;
       this.language$.next(this.currentLang); 
-    }
-  }
-}
+     }
+   }
+ }
 
 
 

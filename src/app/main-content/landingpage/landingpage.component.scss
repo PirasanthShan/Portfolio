@@ -14,9 +14,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 926px;
+  width: min-content;
   height: 157px;
   margin-top: 100px;
+
   
   >h1{
     color: rgb(0, 0, 0);
@@ -125,16 +126,16 @@
 
 @media screen and (max-width: 1455px) {
  .emailArrowCtn{
-  width: 1000px;
+  width: 900px;
  }
 }
 
 
 
-@media screen and (max-width: 1082px) {
+@media screen and (max-width: 1100px) {
   .frontEnd {
     > h1 {
-      font-size: 90px;
+      font-size: 80px;
     }
   }
 
@@ -260,7 +261,7 @@
 .frontEnd{
   >h1{
     font-size: 35px;
-    width: 400px;
+    width: auto;
   }
 }
 
@@ -286,7 +287,7 @@
 }
 
     .emailArrowCtn {
-        width: 390px;
+        width: 350px;
         top: 200px;
     }
 
@@ -295,9 +296,25 @@
 
 @media screen and (max-width: 400px){
     .emailArrowCtn {
-        width: 290px;
-       
-     }
+        width: 300px;
+       }
+
+    .frontEnd{
+      width: auto;
+      h1{
+        width: auto;
+      }
+    }
+
+}
+
+
+
+@media screen and (max-width: 340px){
+    .emailArrowCtn {
+        width: 250px;
+       }
+
 
 }
 

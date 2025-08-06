@@ -208,14 +208,7 @@
     margin-top: 0px;
     width: auto;
     
-
-    .imgWrapper
-    .frame {
-     top: 60px;
-     right: 5px;
-     bottom: -7px;
-     left: -3px;
-   }
+    
   }
    
  p{
@@ -224,7 +217,7 @@
 
   .textCtn{
     margin-top: -70px;
-    transform: translatex(400px);
+    transform: translateY(-400px);
     text-align: end;
     
   }
@@ -237,22 +230,13 @@
  
 @media screen and (max-width: 780px){
 .projectsCtn{
-  margin-right: 10px;
-  margin-left: 45px;
+ width: auto;
   .imgWrapper{
     width: 100%;
-  .frame{
-        top: 55px;
-        right: 1px;
-        bottom: 8px;
-        left: 5px;
-
-    .arrow-icon{
-    top: 70px;
-    left: -20px;
-    width: 40px;
+  .arrow-icon{
+    display: none;
     }
-   }
+   
   }
  
 
@@ -267,9 +251,10 @@ img{
 
 .textCtn{
   margin-top: -140px;
-  text-align: end;
+  text-align: center;
   transform: translateY(-300px);
-  width: 100%;
+  width: auto;
+  text-align: center;
   h1{
   font-size: 25px;
   
@@ -285,7 +270,7 @@ img{
 }
 
 .btnCtn{
-  justify-content: end;
+  justify-content: center;
 }
 
 .btn{
@@ -295,12 +280,11 @@ img{
   justify-content: center;
   align-items: center;
   &:hover{
-    width: 150px;
+     width: 150px;
   }
  }
 
  .projectsCtn:hover .textCtn {
- 
   transform: translateX(0px); // Zielposition
  }
 }
@@ -326,14 +310,15 @@ img{
 
 @media screen and (max-width: 430px){
     .projectsCtn {
-    margin-left: 0;
-    margin-right: 0;
     align-items: center;
      .btn {
         width: 100px;
         height: 40px;
         font-size: 18px;
+         &:hover{
+        width: 100px;
     }
+  }
          
     .textCtn{
         justify-content: center;

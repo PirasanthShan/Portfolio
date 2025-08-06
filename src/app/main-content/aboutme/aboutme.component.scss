@@ -76,7 +76,6 @@ h1{
   top: 110px; 
   width: auto;
   height: auto;
-  overflow: visible; 
   img{
    display: block;
    width: 533px;
@@ -238,23 +237,10 @@ p{
   .imgContainer {
    img{
     max-width: 400px;
+    width: 280px;
    }
  }
 }
-
-
-@media screen and (max-width: 460px){
-  img{
-     width: 350px;
-  }
-
-  .imgContainer {
-   margin-top: -50px;
-  
- }
-}
-
-
 
 
 @media screen and (max-width: 515px){
@@ -272,14 +258,32 @@ p{
 
   .textaboutme{
     font-size: 13px;
-    padding-left: 35px;
-    padding-right: 35px;
+    
   }
 
   button{
     margin-top: 20px;
   }
 }
+
+
+@media screen and (max-width: 460px){
+  img{
+     width: 350px;
+  }
+
+  .imgContainer {
+   margin-top: -50px;
+   display: flex;
+   justify-content: center;
+  }
+
+  .aboutContainer
+ .mainContainer {
+  width: -webkit-fill-available;
+} 
+}
+
 
 
 

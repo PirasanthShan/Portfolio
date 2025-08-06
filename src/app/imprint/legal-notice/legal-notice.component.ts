@@ -14,7 +14,7 @@ import { TranslationService } from '../../translation.service';
 })
 export class LegalNoticeComponent implements OnInit {
   constructor(public translation: TranslationService) {}
-   ngOnInit(): void {
+    ngOnInit(): void {
     window.scrollTo({ top: 0 });
   }
 }
