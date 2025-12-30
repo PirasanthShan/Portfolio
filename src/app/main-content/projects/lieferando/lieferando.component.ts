@@ -64,7 +64,7 @@ export class LieferandoComponent implements AfterViewInit {
   private updateForceShow() {
   if (this.isBrowser && window.innerWidth > 1265) {
     this.textCtnRef.nativeElement.classList.remove('force-show');
-    this.imgWrapperRef.nativeElement.classList.remove('force-color'); // grayscale wieder aktiv
+    this.imgWrapperRef.nativeElement.classList.remove('force-color'); 
     this.textShownOnce = false;
   }
  }

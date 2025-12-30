@@ -12,30 +12,38 @@ h1[id] {
 
 @font-face {
   font-family: 'Overpass';
-  src: url('/assets/fonts/Overpass_Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Overpass_Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: block;
+
 }
 
 @font-face {
   font-family: 'Overpass';
-  src: url('/assets/fonts/Overpass_Bold.ttf') format('truetype');
+  src: url('/assets/fonts/Overpass_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: block;
+
 }
 
 @font-face {
   font-family: 'Syne';
-  src: url('/assets/fonts/syne.bold.ttf') format('truetype');
+  src: url('/assets/fonts/syne.bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: block;
+
 }
 
 @font-face {
   font-family: 'Syne';
-  src: url('/assets/fonts/syne.extra.ttf') format('truetype');
+  src: url('/assets/fonts/syne.extra.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
+  font-display: block;
+
 }
 
 .fontSyne{

@@ -42,8 +42,8 @@ projects: Project[] = [
     title: 'Wasteland Echoes',
     technologies: 'JavaScript | HTML | CSS',
     description: {
-      EN: 'A simple Jump-and-Run game based on an object-oriented approach. Help sharkie to find coins and poison bottles to fight against the killer whale.',
-      DE: 'Ein einfaches Jump-and-Run-Spiel auf objektorientierter Basis. Hilf Sharkie Münzen und Giftflaschen zu sammeln und gegen den Killerwal zu kämpfen.'
+      EN: 'Wasteland Echoes is a self-developed 2D jump’n’run game set in a post-apocalyptic world. The player collects crystals, defuses bombs, fights zombies, and ultimately reaches a spaceship to escape the devastated world.',
+      DE: 'Wasteland Echoes ist ein selbst entwickeltes 2D-Jump’n’Run-Spiel, das in einer postapokalyptischen Welt spielt. Der Spieler sammelt Kristalle, entschärft Bomben, bekämpft Zombies und erreicht schließlich ein Raumschiff, um der zerstörten Welt zu entkommen.'
     },
     imgSrc: './assets/img/wastelandecheos-700.webp',
     githubUrl: '#',
@@ -52,7 +52,7 @@ projects: Project[] = [
   {
     id: '03/04',
     component: LieferandoComponent,
-    title: 'Lieferando',
+    title: 'Lieferando Clon',
     technologies: 'JavaScript | HTML | CSS',
     description: {
       EN: 'A simple food delivery app inspired by Lieferando. Users can browse restaurants, add items to a cart, and place orders.',
