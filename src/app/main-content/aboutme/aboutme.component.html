@@ -28,7 +28,19 @@
     </div>
 
     <div class="imgContainer">
-      <img src="./assets/img/me.webp" alt="">
+      <img
+        src="assets/img/me-600.webp"
+        srcset="
+          assets/img/me-400.webp 400w,
+          assets/img/me-600.webp 600w,
+          assets/img/me-1200.webp 1200w
+        "
+        sizes="(max-width: 600px) 400px, (max-width: 1500px) 500px, 600px"
+        width="600"
+        height="544"
+        alt=""
+      />
+
       <div class="frame"></div>
     </div>
 
