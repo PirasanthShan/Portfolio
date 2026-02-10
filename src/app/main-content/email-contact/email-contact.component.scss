@@ -31,12 +31,12 @@ $warn-red: rgba(230, 28, 64, 1);
   }
 }
 
-/* ---------- Basislayout ---------- */
-section {
+
+.contact-section {
   background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(0, 0, 0));
   width: 100%;
   min-height: 800px;
-  padding-top: 120px; // Abstand für „Say Hi“ sichtbar
+  padding-top: 120px; 
   clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%);
    -webkit-clip-path:  polygon(0 0, 100% 15%, 100% 100%, 0 100%); 
   display: flex;
@@ -48,12 +48,12 @@ section {
 .highlight {
   color: $orange;
   font-weight: normal;
-  text-decoration: none !important; // <- ganz wichtig
+  text-decoration: none !important; 
   transition: color 0.2s ease, border-color 0.2s ease;
   &:hover {
-    text-decoration: none !important; // <- auch beim Hover verhindern
-    border-bottom: none;              // <- optional, falls du es vorher hattest
-    color: lighten($orange, 10%);     // <- falls du trotzdem einen Hover-Effekt willst
+    text-decoration: none !important; 
+    border-bottom: none;              
+    color: lighten($orange, 10%);     
   }
 }
 
@@ -74,7 +74,7 @@ section {
   }
 }
 
-/* ---------- Typo ---------- */
+
 h2 {
   font: 700 32px/1.2 Overpass;
   text-align: center;
@@ -92,7 +92,7 @@ p {
   color: $white;
 }
 
-/* ---------- Form-Layout ---------- */
+
 .inputCtn,
 form {
   display: flex;
@@ -101,7 +101,7 @@ form {
   place-items: center;
 }
 
-/* ----- Floating Input & Textarea ----- */
+
 .floatingInput,
 .floatingTextarea {
   position: relative;
@@ -180,13 +180,58 @@ form {
   gap: 15px;
   margin-top: 160px;
 
-  img {
+  .privacyLabel img {
     width: 24px;
     height: 24px;
     cursor: pointer;
     transition: .2s;
   }
 }
+
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.privacyLabel {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  user-select: none;
+
+  span,
+  p {
+    margin: 0;
+    color: $white;
+    font: 400 14px/1.5 Overpass;
+  }
+
+  a.highlight {
+    color: $orange;
+  }
+}
+
+
+#privacy-consent:focus-visible + .privacyLabel img {
+  outline: 2px solid $orange;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+
+.privacyLabel:hover img {
+  transform: scale(1.05);
+}
+
 
 span      { color: $orange; cursor: pointer; }
 
@@ -207,8 +252,7 @@ span      { color: $orange; cursor: pointer; }
   cursor: pointer;
   z-index: 10;
   display: flex;
-  width: 1370px;
-  justify-content: flex-end;
+  right: 140px;
   img {
     width: 40px;
     height: 80px;
@@ -272,13 +316,14 @@ span      { color: $orange; cursor: pointer; }
       padding-right: 0px;
       }
   }
-
-   .pfeiToTop {
-    display: none;
-  }
 }
 
-
+  @media (max-width: 1025px){
+    
+    .pfeiToTop {
+      display: none;
+    }
+  }
 
 @media (max-width: 1000px) {
   section {
@@ -298,8 +343,21 @@ span      { color: $orange; cursor: pointer; }
     width: 90%;
   }
 
-  .checkCtn {
-    padding: 20px;
+   .checkCtn {
+    width: 90%;
+    margin-top: 130px;
+    padding: 0;
+  }
+
+  .privacyLabel {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .privacyLabel span,
+  .privacyLabel p {
+    font-size: 13px;
+    line-height: 1.4;
   }
 }
 

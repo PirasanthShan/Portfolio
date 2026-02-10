@@ -1,4 +1,4 @@
-<section>
+<section class="contact-section">
   <div class="header">
     <h1>{{ translation.getTranslation('sayHi') }}</h1>
   </div>
@@ -9,99 +9,107 @@
   </div>
 
   <div class="inputCtn">
-
-    
     <div class="successBanner" *ngIf="successMessageVisible">
       {{ translation.getTranslation('emailSentSuccess') }}
     </div>
 
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-
-      
       <div class="floatingInput">
-        <input [(ngModel)]="contactData.name"
-               id="name"
-               name="name"
-               class="input"
-               required
-               #name="ngModel" />
+        <input
+          [(ngModel)]="contactData.name"
+          id="contact-name"
+          name="name"
+          class="input"
+          required
+          #nameModel="ngModel" />
         <div class="icon">
-          <img src="assets/img/warn.webp" alt="!" *ngIf="name.invalid && name.touched">
-          <img src="assets/img/right.webp" alt="✓" *ngIf="name.valid && name.touched">
+          <img src="assets/img/warn.webp" alt="" *ngIf="nameModel.invalid && nameModel.touched" />
+          <img src="assets/img/right.webp" alt="" *ngIf="nameModel.valid && nameModel.touched" />
         </div>
-        <label for="name">{{ translation.getTranslation('yourName') }}</label>
-         <span *ngIf="name.invalid && name.touched" class="warnInput">
-        {{ translation.getTranslation('nameRequired') }}
-      </span>
-      </div>
-     
-
-      <div class="floatingInput">
-        <input [(ngModel)]="contactData.email"
-               id="email"
-               name="email"
-               class="input"
-               type="email"
-               required
-               pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-               #email="ngModel">
-        <div class="icon">
-          <img src="./assets/img/warn.webp" alt="!" *ngIf="email.invalid && email.touched">
-          <img src="./assets/img/right.webp" alt="✓" *ngIf="email.valid && email.touched">
-        </div>
-        <label for="email">{{ translation.getTranslation('yourEmail') }}</label>
-        <span *ngIf="email.invalid && email.touched" class="warnInput">
-        {{ translation.getTranslation('emailRequired') }}
+        <label for="contact-name">{{ translation.getTranslation('yourName') }}</label>
+        <span *ngIf="nameModel.invalid && nameModel.touched" class="warnInput">
+          {{ translation.getTranslation('nameRequired') }}
         </span>
       </div>
-     
 
-     <div class="floatingTextarea">
-        <textarea [(ngModel)]="contactData.message"
-                  id="message"
-                  name="message"
-                  class="textInput"
-                  required
-                  #message="ngModel"></textarea>
+      <div class="floatingInput">
+        <input
+          [(ngModel)]="contactData.email"
+          id="contact-email"
+          name="email"
+          class="input"
+          type="email"
+          required
+          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+          #emailModel="ngModel" />
         <div class="icon">
-          <img src="assets/img/warn.webp" alt="!" *ngIf="!isMessageValid() && message.touched">
-          <img src="assets/img/right.webp" alt="✓" *ngIf="isMessageValid() && message.touched">
+          <img src="assets/img/warn.webp" alt="" *ngIf="emailModel.invalid && emailModel.touched" />
+          <img src="assets/img/right.webp" alt="" *ngIf="emailModel.valid && emailModel.touched" />
         </div>
-        <label for="message">{{ translation.getTranslation('yourMessage') }}</label>
-        <span *ngIf="!isMessageValid() && message.touched" class="warnInput">
-        {{ translation.getTranslation('messageRequired') }}
+        <label for="contact-email">{{ translation.getTranslation('yourEmail') }}</label>
+        <span *ngIf="emailModel.invalid && emailModel.touched" class="warnInput">
+          {{ translation.getTranslation('emailRequired') }}
         </span>
       </div>
-      
+
+      <div class="floatingTextarea">
+        <textarea
+          [(ngModel)]="contactData.message"
+          id="contact-message"
+          name="message"
+          class="textInput"
+          required
+          #messageModel="ngModel"></textarea>
+        <div class="icon">
+          <img src="assets/img/warn.webp" alt="" *ngIf="!isMessageValid() && messageModel.touched" />
+          <img src="assets/img/right.webp" alt="" *ngIf="isMessageValid() && messageModel.touched" />
+        </div>
+        <label for="contact-message">{{ translation.getTranslation('yourMessage') }}</label>
+        <span *ngIf="!isMessageValid() && messageModel.touched" class="warnInput">
+          {{ translation.getTranslation('messageRequired') }}
+        </span>
+      </div>
 
       <div class="checkCtn">
-        <img (click)="toggleCheckbox()"
-             [src]="currentImage"
-             alt="Check Icon"
-             width="24"
-             height="24"
-             (mouseenter)="onMouseEnter()"
-             (mouseleave)="onMouseLeave()"
-             style="cursor: pointer" />
-        <p>
-          <ng-container *ngIf="translation.currentLanguage === 'EN'; else germanText">
-            I've read the 
-            <a class="highlight" [routerLink]="'/privacy'" rel="noopener">privacy policy</a>
-            and agree to the processing of my data as outlined.
-          </ng-container>
-          <ng-template #germanText>
-            Ich habe die 
-            <a class="highlight"  [routerLink]="'/privacy'" rel="noopener">Datenschutzerklärung</a>
-            gelesen und stimme der Verarbeitung meiner Daten zu.
-          </ng-template>
-        </p>
+        <!-- echtes Form-Control -->
+        <input
+          id="privacy-consent"
+          name="privacyConsent"
+          type="checkbox"
+          class="visually-hidden"
+          [checked]="checkboxAccepted"
+          (change)="toggleCheckbox()"
+          required />
+
+        <label for="privacy-consent" class="privacyLabel">
+          <img
+            [src]="currentImage"
+            alt=""
+            width="24"
+            height="24"
+            (mouseenter)="onMouseEnter()"
+            (mouseleave)="onMouseLeave()"
+            style="cursor: pointer" />
+          <span>
+            <ng-container *ngIf="translation.currentLanguage === 'EN'; else germanText">
+              I've read the
+              <a class="highlight" [routerLink]="'/privacy'" rel="noopener">privacy policy</a>
+              and agree to the processing of my data as outlined.
+            </ng-container>
+            <ng-template #germanText>
+              Ich habe die
+              <a class="highlight" [routerLink]="'/privacy'" rel="noopener">Datenschutzerklärung</a>
+              gelesen und stimme der Verarbeitung meiner Daten zu.
+            </ng-template>
+          </span>
+        </label>
       </div>
 
       <span class="warnInputPrivacy" *ngIf="showPrivacyWarning">
         {{ translation.getTranslation('privacyRequired') }}
       </span>
 
-    <input
+      <input
         type="submit"
         [disabled]="!isInputsValid(contactForm)"
         [value]="translation.getTranslation('sendMessage')"
@@ -111,6 +119,6 @@
   </div>
 
   <div class="pfeiToTop">
-    <a href="#landingpage"><img src="./assets/img/arrowtoToplong.webp" alt=""></a>
+    <a href="#landingpage"><img src="assets/img/arrowtoToplong.webp" alt="" /></a>
   </div>
 </section>
