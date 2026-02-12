@@ -21,6 +21,7 @@
           name="name"
           class="input"
           required
+          autocomplete="name"
           #nameModel="ngModel" />
         <div class="icon">
           <img src="assets/img/warn.webp" alt="" *ngIf="nameModel.invalid && nameModel.touched" />
@@ -40,6 +41,7 @@
           class="input"
           type="email"
           required
+          autocomplete="off"
           pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
           #emailModel="ngModel" />
         <div class="icon">
