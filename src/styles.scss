@@ -1,54 +1,50 @@
-body,html{
+html, body {
   background-color: #FFFCF3;
-  margin: 0px;
+  margin: 0;
   cursor: default;
-   scroll-behavior: auto; /* statt smooth */
-  font-family: Arial, sans-serif !important;
-  }
+  scroll-behavior: auto;
+}
 
-  h1[id] {
-    scroll-margin-top: 200px; 
-  }
-
+h1[id] {
+  scroll-margin-top: 200px;
+}
 
 @font-face {
   font-family: 'Overpass';
-  src: url('/assets/fonts/Overpass_Regular.woff2') format('woff2');
+  src: url('assets/fonts/Overpass_Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
-
+  font-display: fallback;
 }
 
 @font-face {
   font-family: 'Overpass';
-  src: url('/assets/fonts/Overpass_Bold.woff2') format('woff2');
+  src: url('assets/fonts/Overpass_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-
+  font-display: fallback;
 }
 
 @font-face {
   font-family: 'Syne';
-  src: url('/assets/fonts/syne.bold.woff2') format('woff2');
+  src: url('assets/fonts/syne.bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-
+  font-display: fallback;
 }
 
 @font-face {
   font-family: 'Syne';
-  src: url('/assets/fonts/syne.extra.woff2') format('woff2');
+  src: url('assets/fonts/syne.extra.woff2') format('woff2');
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
-
+  font-display: fallback;
 }
 
-.fontSyne,
+.fontSyne {
+  font-family: 'Syne', Arial, sans-serif;
+}
+
 .fontOverpass {
-  font-family: Arial, sans-serif !important;
+  font-family: 'Overpass', Arial, sans-serif;
 }
-
