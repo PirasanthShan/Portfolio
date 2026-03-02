@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-
 export type TranslationKey =
   | 'landingTitle'
   | 'scrollDown'
@@ -70,21 +69,9 @@ type TranslationMap = Record<TranslationKey, string>;
 })
 export class TranslationService {
   private currentLang: 'EN' | 'DE' = 'EN';
-  public language$ = new BehaviorSubject<'EN' | 'DE' | null>(null);
+  public language$ = new BehaviorSubject<'EN' | 'DE'>(this.currentLang);
 
-
-
-constructor() {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const savedLang = localStorage.getItem('selectedLanguage');
-    if (savedLang === 'EN' || savedLang === 'DE') {
-      this.currentLang = savedLang;
-      this.language$.next(this.currentLang); 
-     }
-   }
- }
-
-
+  constructor() {}
 
   private translations: Record<'EN' | 'DE', TranslationMap> = {
     EN: {
@@ -146,7 +133,7 @@ constructor() {
       privacyRights4: 'Revocation of consent to processing',
       privacyContactTitle: 'Contact',
       privacyContactText: 'If you have questions about data protection, please contact us at the above address or by email.',
-      emailSentSuccess: 'Message sent successfully!',
+      emailSentSuccess: 'Message sent successfully!'
     },
     DE: {
       landingTitle: 'Frontend Entwickler',
@@ -168,7 +155,7 @@ constructor() {
       acceptPrivacy: 'Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.',
       privacyRequired: 'Bitte stimme der Datenschutzerklärung zu',
       sendMessage: 'Nachricht senden',
-      mySkills: 'Fähigkeit',
+      mySkills: 'Fähigkeiten',
       contactForMore: 'Nicht die passende Fähigkeit dabei? Schreib mir – ich lerne gerne dazu!',
       portfolio: 'Portfolio',
       portfolioText: 'Hier findest du eine Auswahl meiner Arbeiten – interagiere mit den Projekten, um meine Fähigkeiten zu erleben.',
@@ -197,7 +184,7 @@ constructor() {
       privacyCollectionTitle: 'Erhebung und Verarbeitung personenbezogener Daten',
       privacyCollectionText: 'Beim Besuch dieser Website werden keine personenbezogenen Daten automatisch gespeichert. Personenbezogene Daten wie Name oder E-Mail-Adresse werden nur dann erfasst, wenn Sie diese freiwillig über das Kontaktformular übermitteln.',
       privacyUsageTitle: 'Verwendung Ihrer Daten',
-      privacyUsageText: 'Die von Ihnen bereitgestellten Daten (z. B. durch das Kontaktformular) werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte.',
+      privacyUsageText: 'Die von Ihnen bereitgestellten Daten (z. B. durch das Kontaktformular) werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet. Es erfolgt keine Weitergabe an Dritte.',
       privacyStorageTitle: 'Speicherdauer',
       privacyStorageText: 'Ihre Daten werden nur so lange gespeichert, wie es zur Bearbeitung Ihrer Anfrage notwendig ist. Anschließend werden sie gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.',
       privacyRightsTitle: 'Ihre Rechte',
@@ -207,31 +194,18 @@ constructor() {
       privacyRights4: 'Widerruf der Einwilligung zur Verarbeitung',
       privacyContactTitle: 'Kontakt',
       privacyContactText: 'Wenn Sie Fragen zum Datenschutz haben, schreiben Sie uns bitte unter der oben genannten Adresse oder per E-Mail.',
-      emailSentSuccess: 'Nachricht erfolgreich gesendet!',
-
+      emailSentSuccess: 'Nachricht erfolgreich gesendet!'
     }
   };
 
+  init(): Promise<void> {
+    return Promise.resolve();
+  }
+
   setLang(lang: 'EN' | 'DE'): void {
-  this.currentLang = lang;
-  localStorage.setItem('selectedLanguage', lang);
-  this.language$.next(lang); 
- }
-
-    init(): Promise<void> {
-      return new Promise(resolve => {
-        if (typeof window !== 'undefined' && window.localStorage) {
-          const savedLang = localStorage.getItem('selectedLanguage');
-          if (savedLang === 'EN' || savedLang === 'DE') {
-            this.currentLang = savedLang;
-            this.language$.next(savedLang);
-          }
-        }
-        resolve();
-      });
-    }
-
-
+    this.currentLang = lang;
+    this.language$.next(lang);
+  }
 
   getTranslation(key: TranslationKey): string {
     return this.translations[this.currentLang][key];

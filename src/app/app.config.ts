@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(withFetch()),
-    provideClientHydration(),
+    //provideClientHydration(),
     {
       provide: APP_INITIALIZER,
       useFactory: initLang,

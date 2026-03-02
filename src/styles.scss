@@ -2,7 +2,8 @@ body,html{
   background-color: #FFFCF3;
   margin: 0px;
   cursor: default;
-  scroll-behavior: smooth;
+   scroll-behavior: auto; /* statt smooth */
+  font-family: Arial, sans-serif !important;
   }
 
   h1[id] {
@@ -46,11 +47,8 @@ body,html{
 
 }
 
-.fontSyne{
-  font-family: 'Syne';
-}
-
-.fontOverpass{
-  font-family: 'Overpass';
+.fontSyne,
+.fontOverpass {
+  font-family: Arial, sans-serif !important;
 }
 
